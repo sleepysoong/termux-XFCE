@@ -101,7 +101,8 @@ virgl_test_server_android --angle-gl & > /dev/null 2>&1
 sleep 1
 XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 &
 sleep 1
-DISPLAY=:1.0 GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6 dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1' > ~/.shortcuts/startXFCE
+#DISPLAY=:1.0 GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6 dbus-launch --exit-with-session xfce4-session &
+DISPLAY=:1.0 dbus-launch --exit-with-session xfce4-session &' > ~/.shortcuts/startXFCE
 
 
 chmod +x ~/.shortcuts/startXFCE
