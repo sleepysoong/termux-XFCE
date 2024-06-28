@@ -26,7 +26,7 @@ termux-change-repo
 pkg update -y -o Dpkg::Options::="--force-confold"
 pkg upgrade -y -o Dpkg::Options::="--force-confold"
 #sed -i '12s/^#//' $HOME/.termux/termux.properties
-echo -e "${GREEN}termux 외부앱 허용, 진동-> 무음으로 변경.${WHITE}"
+echo -e "termux 외부앱 허용, 진동-> 무음으로 변경."
 # 기본세팅 외부앱 사용가능
 sleep 1
 sed -i 's/# allow-external-apps = true/allow-external-apps = true/g' /data/data/com.termux/files/home/.termux/termux.properties
