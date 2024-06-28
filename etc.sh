@@ -101,7 +101,7 @@ virgl_test_server_android --angle-gl & > /dev/null 2>&1
 sleep 1
 XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 &
 sleep 1
-DISPLAY=:1.0 GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6 dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1 > ~/.shortcuts/startXFCE
+DISPLAY=:1.0 GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6 dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1' > ~/.shortcuts/startXFCE
 
 
 chmod +x ~/.shortcuts/startXFCE
@@ -130,7 +130,7 @@ termux_hangover_wine_install()
     sleep 1
     echo -e "${GREEN}tur-multilib, tur-hacking 저장소 추가${WHITE}"
 
-    if ! grep -q "tur-multilib tur-hacking" ~/../usr/etc/apt/sources.list.d/tur.list; then
+    if !grep -q "tur-multilib tur-hacking" ~/../usr/etc/apt/sources.list.d/tur.list; then
         sed -i 's/$/ tur-multilib tur-hacking/' ~/../usr/etc/apt/sources.list.d/tur.list
     fi
     sleep 1
