@@ -19,10 +19,6 @@ termux_base_setup()
     echo -e "${GREEN}termux 업데이트 && 업그레이드.${WHITE}"
 	pkg update -y && pkg upgrade -y
     sleep 1
-    termux_setting
-    sleep 1
-
-    sleep 1
     echo -e "${GREEN}termux 외부앱 허용, 진동-> 무음으로 변경.${WHITE}"
     # 기본세팅 외부앱 사용가능
     sleep 1
@@ -38,11 +34,9 @@ termux_base_setup()
 
     sleep 1
 	echo -e "${GREEN}alias 추가.${WHITE}"
-	if ! grep -q "LaunchXFCE" ~/.bashrc; then
     echo "
 alias ll='ls -alhF'
 alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
-    fi
 
     source ~/.bashrc
 
