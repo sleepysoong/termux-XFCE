@@ -25,7 +25,7 @@ read -r -p "Please enter username for proot installation: " username </dev/tty
 termux-change-repo
 pkg update -y -o Dpkg::Options::="--force-confold"
 pkg upgrade -y -o Dpkg::Options::="--force-confold"
-sed -i '12s/^#//' $HOME/.termux/termux.properties
+#sed -i '12s/^#//' $HOME/.termux/termux.properties
 
 
 # Display a message 
@@ -51,6 +51,7 @@ mkdir -p Downloads
 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/xfce.sh
 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/proot.sh
 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/utils.sh
+wget https://github.com/yanghoeg/Termux_XFCE/raw/main/theme.sh
 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/etc.sh
 chmod +x *.sh
 
@@ -58,6 +59,7 @@ chmod +x *.sh
 ./proot.sh "$username"
 ./utils.sh
 ./etc.sh
+./theme.sh
 
 # Display a message 
 clear -x
@@ -92,4 +94,5 @@ rm xfce.sh
 rm proot.sh
 rm utils.sh
 rm etc.sh
+rm theme.sh
 rm install.sh

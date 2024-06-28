@@ -27,7 +27,6 @@ termux_base_setup()
     sleep 1
     sed -i 's/# bell-character = ignore/bell-character = ignore/g' /data/data/com.termux/files/home/.termux/termux.properties
 
-
     sleep 1
 	echo -e "${GREEN}unzip설치.${WHITE}"
 	pkg install -y unzip 2>/dev/null
@@ -38,7 +37,7 @@ termux_base_setup()
 alias ll='ls -alhF'
 alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 
-    source ~/.bashrc
+    source $PREFIX/etc/bash.bashrc
 
     echo -e "${GREEN}tur-repo추가${WHITE}"
     pkg install -y tur-repo
@@ -80,13 +79,34 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
     sleep 1
     echo -e "${GREEN}which 설치${WHITE}"
     pkg install -y which 2>/dev/null
+
     sleep 1
     echo -e "${GREEN}Termux-widget 설치.${WHITE}"
     wget $TERMUX_WIDGET_LINK -O termux-widget_v0.13.0+github-debug.apk
 	termux-open termux-widget_v0.13.0+github-debug.apk
 
-	echo -e "${GREEN}termux x11, widget 설치파일 삭제.${WHITE}"
+	echo -e "${GREEN}termux widget 설치파일 삭제.${WHITE}"
     rm termux-widget*.apk
+
+    mkdir ~/.shortcuts
+    echo "sh $PREFIX/bin/start" > ~/.shortcuts/startXFCE
+    chmod +x ~/.shortcuts/startXFCE
+
+echo -e '#!/bin/sh
+killall -9 termux-x11 Xwayland pulseaudio virgl_test_server_android virgl_test_server
+termux-wake-lock; termux-toast "Starting X11"
+am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity
+sleep 1
+virgl_test_server_android --angle-gl & > /dev/null 2>&1
+sleep 1
+XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 &
+sleep 1
+DISPLAY=:1.0 GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6 dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1 > ~/.shortcuts/startXFCE
+
+
+chmod +x ~/.shortcuts/startXFCE
+
+    sleep 1
 
 }
 
@@ -98,6 +118,10 @@ termux_etc_install(){
     sleep 1
     echo -e "${GREEN}chromium 설치 ${WHITE}"
     pkg install -y chromium  2>/dev/null
+
+    sleep 1
+    echo -e "${GREEN}gimp 설치 ${WHITE}"
+    pkg install -y gimp  2>/dev/null
 }
 
 termux_hangover_wine_install()
