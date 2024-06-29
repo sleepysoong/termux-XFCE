@@ -28,16 +28,27 @@ termux_base_setup()
     sed -i 's/# bell-character = ignore/bell-character = ignore/g' /data/data/com.termux/files/home/.termux/termux.properties
 
     sleep 1
-	echo -e "${GREEN}unzip설치.${WHITE}"
-	pkg install -y unzip 2>/dev/null
+    echo -e "${GREEN}사운드 설정.${WHITE}"
+
+echo "
+pulseaudio --start --exit-idle-time=-1
+pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1
+" > ~/.sound
+
+echo "source .sound" >> $PREFIX/etc/bash.bashrc
 
     sleep 1
-	echo -e "${GREEN}alias 추가.${WHITE}"
+    echo -e "${GREEN} alias 설정.${WHITE}"
     echo "
 alias ll='ls -alhF'
+alias zink='GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform '
 alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 
     source $PREFIX/etc/bash.bashrc
+
+    sleep 1
+	echo -e "${GREEN}unzip설치.${WHITE}"
+	pkg install -y unzip 2>/dev/null
 
     echo -e "${GREEN}tur-repo추가${WHITE}"
     pkg install -y tur-repo

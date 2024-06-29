@@ -170,7 +170,7 @@ sleep 1
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity > /dev/null 2>&1
 sleep 1
 
-MESA_NO_ERROR=1 MESA_GL_VERSION_OVERRIDE=4.3COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 virgl_test_server_android --angle-gl & > /dev/null 2>&1
+MESA_NO_ERROR=1 MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 virgl_test_server_android --angle-gl & > /dev/null 2>&1
 
 #GALLIUM_DRIVER=virpipe MESA_GL_VERSION_OVERRIDE=4.0 program
 
