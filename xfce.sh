@@ -71,11 +71,11 @@ wget https://github.com/phoenixbyrd/Termux_XFCE/raw/main/font.ttf
 mv font.ttf .termux/font.ttf
 
 #Setup Fancybash Termux
-wget https://raw.githubusercontent.com/phoenixbyrd/Termux_XFCE/main/fancybash.sh
-mv fancybash.sh .fancybash.sh
-echo "source $HOME/.fancybash.sh" >> $PREFIX/etc/bash.bashrc
-sed -i "326s/\\\u/$username/" $HOME/.fancybash.sh
-sed -i "327s/\\\h/termux/" $HOME/.fancybash.sh
+#wget https://raw.githubusercontent.com/phoenixbyrd/Termux_XFCE/main/fancybash.sh
+#mv fancybash.sh .fancybash.sh
+#echo "source $HOME/.fancybash.sh" >> $PREFIX/etc/bash.bashrc
+#sed -i "326s/\\\u/$username/" $HOME/.fancybash.sh
+#sed -i "327s/\\\h/termux/" $HOME/.fancybash.sh
 
 #Autostart Conky and Flameshot
 wget https://github.com/phoenixbyrd/Termux_XFCE/raw/main/config.tar.gz

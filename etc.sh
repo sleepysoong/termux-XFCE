@@ -41,7 +41,8 @@ echo "source .sound" >> $PREFIX/etc/bash.bashrc
     echo -e "${GREEN} alias 설정.${WHITE}"
     echo "
 alias ll='ls -alhF'
-alias zink='GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform '
+#alias zink='GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform '
+alias zink='GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6COMPAT TU_DEBUG=noconform '
 alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 
     source $PREFIX/etc/bash.bashrc
