@@ -13,24 +13,21 @@ install_base_packages(){
     
 	sleep 1
 	echo -e "${GREEN}기타 프로그램을 설치합니다.${WHITE}"
-	apt install dialog psmisc htop wget glmark2  -y
-	apt install meson ninja-build sudo vim nano onboard x11-apps neofetch aptitude language-pack-gnome-ko-base locales -y 
+	apt install dialog psmisc htop wget glmark2  -y 2>/dev/null
+	apt install meson ninja-build sudo vim nano onboard x11-apps neofetch aptitude language-pack-gnome-ko-base locales -y  2>/dev/null
 
     sleep 1
-    apt install -y fonts-nanum*
-
-    sleep 1
-    apt install -y fonts-nanum*
+    apt install -y fonts-nanum* 2>/dev/null
     
     sleep 1
-    apt install -y fcitx5-lib* 
+    apt install -y fcitx5-lib* 2>/dev/null
     
     sleep 1
-	apt install fcitx5 fcitx5-hangul -y 
+	apt install fcitx5 fcitx5-hangul -y 2>/dev/null
 
     sleep 1
 	echo -e "${GREEN}리브레오피스를 설치합니다.${WHITE}"
-	apt install libreoffice libreoffice-help-ko -y 
+	apt install libreoffice libreoffice-help-ko -y  2>/dev/null
 
     sleep 1
 	apt autoremove
