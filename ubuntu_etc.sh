@@ -36,7 +36,7 @@ install_base_packages(){
 	apt install meson ninja-build sudo vim nano onboard x11-apps neofetch aptitude language-pack-ko language-pack-gnome-ko-base locales -y  2>/dev/null
 
 	sleep 1
-	eche -e '
+	echo -e '
 #한국어 설정
 LANG=ko_KR.UTF-8
 LC_CTYPE=ko_KR.UTF-8
