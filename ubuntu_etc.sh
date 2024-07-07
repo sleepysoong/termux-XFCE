@@ -6,6 +6,25 @@ export WHITE='\033[0;37m'
 
 echo -e "${GREEN}Ubuntu proot 관련프로그램을 설치합니다(XFCE4, GPU가속기 등을 설치합니다)."
 
+#!/bin/bash
+
+# Unofficial Bash Strict Mode
+set -euo pipefail
+IFS=$'\n\t'
+
+finish() {
+  local ret=$?
+  if [ ${ret} -ne 0 ] && [ ${ret} -ne 130 ]; then
+    echo
+    echo "ERROR: ubuntu 추가프로그램 설치에 실패하였습니다."
+    echo "위 error message를 참고하세요"
+  fi
+}
+
+trap finish EXIT
+
+username="$1"
+
 install_base_packages(){
 	set -e
 	echo -e "${GREEN}apt update && upgrade.${WHITE}"
@@ -31,7 +50,7 @@ LC_ADDRESS=ko_KR.UTF-8
 LC_TELEPHONE=ko_KR.UTF-8
 LC_MEASUREMENT=ko_KR.UTF-8
 LC_IDENTIFICATION=ko_KR.UTF-8
-LANGUAGE=ko_KR.UTF-8' >> /home/yanghoeg/.profile
+LANGUAGE=ko_KR.UTF-8' >> /home/$username/.profile
 
     sleep 1
     apt install -y fonts-nanum* 2>/dev/null
@@ -47,7 +66,7 @@ export GTK_IM_MODULE=nimf
 export QT4_IM_MODULE="nimf"
 export QT_IM_MODULE=nimf
 export XMODIFIERS="@im=nimf"
-nimf' >> /home/yanghoeg/.profile
+nimf' >> /home/$username/.profile
 
     sleep 1
 	echo -e "${GREEN}리브레오피스를 설치합니다.${WHITE}"
