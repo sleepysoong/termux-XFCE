@@ -25,13 +25,6 @@ pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 apt update
 pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 apt upgrade -y
 pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 apt install "${pkgs_proot[@]}" -y -o Dpkg::Options::="--force-confold"
 
-wget https://github.com/yanghoeg/Termux_XFCE/raw/main/ubuntu_etc.sh
-chmod +x ./ubuntu_etc.sh
-cp ./ubuntu_etc.sh $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
-chmod +x $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
-proot-distro login ubuntu --user root --shared-tmp --no-sysvipc -- bash -c "./ubuntu_etc.sh ${username}"
-rm $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
-
 #Create user
 pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 groupadd storage
 pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 groupadd wheel
@@ -41,6 +34,14 @@ pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 useradd -m -g users -G wheel,au
 chmod u+rw $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/etc/sudoers
 echo "$username ALL=(ALL) NOPASSWD:ALL" | tee -a $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/etc/sudoers > /dev/null
 chmod u-w  $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/etc/sudoers
+
+wget https://github.com/yanghoeg/Termux_XFCE/raw/main/ubuntu_etc.sh
+chmod +x ./ubuntu_etc.sh
+cp ./ubuntu_etc.sh $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
+chmod +x $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
+proot-distro login ubuntu --user root --shared-tmp --no-sysvipc -- bash -c "./ubuntu_etc.sh ${username}"
+rm $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
+
 
 #Set proot DISPLAY
 echo "export DISPLAY=:1.0" >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
