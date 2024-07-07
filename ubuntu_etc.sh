@@ -37,6 +37,7 @@ install_base_packages(){
 
 	sleep 1
 	eche -e '
+#한국어 설정
 LANG=ko_KR.UTF-8
 LC_CTYPE=ko_KR.UTF-8
 LC_NUMERIC=ko_KR.UTF-8
@@ -50,7 +51,7 @@ LC_ADDRESS=ko_KR.UTF-8
 LC_TELEPHONE=ko_KR.UTF-8
 LC_MEASUREMENT=ko_KR.UTF-8
 LC_IDENTIFICATION=ko_KR.UTF-8
-LANGUAGE=ko_KR.UTF-8' >> /home/$username/.profile
+LANGUAGE=ko_KR.UTF-8' > /home/$username/.profile
 
     sleep 1
     apt install -y fonts-nanum* 2>/dev/null
@@ -62,6 +63,7 @@ LANGUAGE=ko_KR.UTF-8' >> /home/$username/.profile
 	im-config -n nimf
 
 	echo -e '
+# 편집기 설정
 export GTK_IM_MODULE=nimf
 export QT4_IM_MODULE="nimf"
 export QT_IM_MODULE=nimf
