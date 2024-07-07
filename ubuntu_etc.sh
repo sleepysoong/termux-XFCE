@@ -4,10 +4,6 @@ export URED='\033[4;31m'
 export UYELLOW='\033[4;33m'
 export WHITE='\033[0;37m' 
 
-echo -e "${GREEN}Ubuntu proot 관련프로그램을 설치합니다(XFCE4, GPU가속기 등을 설치합니다)."
-
-#!/bin/bash
-
 # Unofficial Bash Strict Mode
 set -euo pipefail
 IFS=$'\n\t'
@@ -25,6 +21,8 @@ trap finish EXIT
 
 username="$1"
 
+echo -e "${GREEN}Ubuntu proot 관련프로그램을 설치합니다(XFCE4, GPU가속기 등을 설치합니다)."
+
 install_base_packages(){
 	set -e
 	echo -e "${GREEN}apt update && upgrade.${WHITE}"
@@ -33,7 +31,7 @@ install_base_packages(){
 	sleep 1
 	echo -e "${GREEN}기타 프로그램을 설치합니다.${WHITE}"
 	apt install dialog psmisc htop wget glmark2  -y 2>/dev/null
-	apt install meson ninja-build sudo vim nano onboard x11-apps neofetch aptitude language-pack-ko language-pack-gnome-ko-base locales -y  2>/dev/null
+	apt install meson ninja-build sudo vim nano onboard x11-apps neofetch aptitude language-pack-ko language-pack-gnome-ko-base locales im-config -y  2>/dev/null
 
 	sleep 1
 	echo -e '
@@ -51,7 +49,7 @@ LC_ADDRESS=ko_KR.UTF-8
 LC_TELEPHONE=ko_KR.UTF-8
 LC_MEASUREMENT=ko_KR.UTF-8
 LC_IDENTIFICATION=ko_KR.UTF-8
-LANGUAGE=ko_KR.UTF-8' > /home/$username/.profile
+LANGUAGE=ko_KR.UTF-8' >> /home/$username/.profile
 
     sleep 1
     apt install -y fonts-nanum* 2>/dev/null
