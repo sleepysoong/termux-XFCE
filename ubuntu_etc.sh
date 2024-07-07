@@ -14,20 +14,48 @@ install_base_packages(){
 	sleep 1
 	echo -e "${GREEN}기타 프로그램을 설치합니다.${WHITE}"
 	apt install dialog psmisc htop wget glmark2  -y 2>/dev/null
-	apt install meson ninja-build sudo vim nano onboard x11-apps neofetch aptitude language-pack-gnome-ko-base locales -y  2>/dev/null
+	apt install meson ninja-build sudo vim nano onboard x11-apps neofetch aptitude language-pack-ko language-pack-gnome-ko-base locales -y  2>/dev/null
+
+	sleep 1
+	eche -e '
+LANG=ko_KR.UTF-8
+LC_CTYPE=ko_KR.UTF-8
+LC_NUMERIC=ko_KR.UTF-8
+LC_TIME=ko_KR.UTF-8
+LC_COLLATE=ko_KR.UTF-8
+LC_MONETARY=ko_KR.UTF-8
+LC_MESSAGES=ko_KR.UTF-8
+LC_PAPER=ko_KR.UTF-8
+LC_NAME=ko_KR.UTF-8
+LC_ADDRESS=ko_KR.UTF-8
+LC_TELEPHONE=ko_KR.UTF-8
+LC_MEASUREMENT=ko_KR.UTF-8
+LC_IDENTIFICATION=ko_KR.UTF-8
+LANGUAGE=ko_KR.UTF-8' >> /home/yanghoeg/.profile
 
     sleep 1
     apt install -y fonts-nanum* 2>/dev/null
     
     sleep 1
-    apt install -y fcitx5-lib* 2>/dev/null
+    apt install -y nimf nimf-libhangul fonts-noto-cjk fonts-roboto 2>/dev/null
     
-    sleep 1
-	apt install fcitx5 fcitx5-hangul -y 2>/dev/null
+	sleep 1
+	im-config -n nimf
+
+	echo -e '
+export GTK_IM_MODULE=nimf
+export QT4_IM_MODULE="nimf"
+export QT_IM_MODULE=nimf
+export XMODIFIERS="@im=nimf"
+nimf' >> /home/yanghoeg/.profile
 
     sleep 1
 	echo -e "${GREEN}리브레오피스를 설치합니다.${WHITE}"
 	apt install libreoffice libreoffice-help-ko -y  2>/dev/null
+	
+	sleep 1
+	echo -e "${GREEN}chromium을 설치합니다.${WHITE}"
+	apt install chromium-browser -y  2>/dev/null
 
     sleep 1
 	apt autoremove
