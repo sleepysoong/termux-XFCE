@@ -30,8 +30,42 @@ install_base_packages(){
     
 	sleep 1
 	echo -e "${GREEN}기타 프로그램을 설치합니다.${WHITE}"
-	apt install dialog psmisc htop wget glmark2  -y 2>/dev/null
-	apt install meson ninja-build sudo vim nano onboard x11-apps neofetch aptitude language-pack-ko language-pack-gnome-ko-base locales im-config -y  2>/dev/null
+	sleep 1
+	apt install dialog psmisc htop wget glmark2 -y 2>/dev/null
+	sleep 1
+	apt install meson  -y  2>/dev/null
+	sleep 1
+	apt install ninja-build  -y  2>/dev/null
+
+	sleep 1
+	apt install sudo  -y  2>/dev/null
+
+	sleep 1
+	apt install vim  -y  2>/dev/null
+
+	sleep 1
+	apt install nano  -y  2>/dev/null
+
+	sleep 1
+	apt install onboard  -y  2>/dev/null
+
+	sleep 1
+	apt install x11-apps -y  2>/dev/null
+
+	sleep 1
+	apt install neofetch -y  2>/dev/null
+
+	sleep 1
+	apt install aptitude  -y  2>/dev/null
+
+	sleep 1
+	apt install language-pack-ko  -y  2>/dev/null
+
+	sleep 1
+	apt install language-pack-gnome-ko-base -y  2>/dev/null
+
+	sleep 1
+	apt install locales -y  2>/dev/null
 
 	sleep 1
 	echo -e '
@@ -54,6 +88,8 @@ LANGUAGE=ko_KR.UTF-8' >> /home/$username/.profile
     sleep 1
     apt install -y fonts-nanum* 2>/dev/null
     
+	sleep 1
+    apt install -y im-config 2>/dev/null
     sleep 1
     apt install -y nimf nimf-libhangul fonts-noto-cjk fonts-roboto 2>/dev/null
     
