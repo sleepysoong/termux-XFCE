@@ -31,7 +31,7 @@ pkg upgrade -y -o Dpkg::Options::="--force-confold"
 # Display a message 
 clear -x
 echo ""
-echo "Setting up Termux Storage access." 
+echo "Termux 저장소 접근 허용." 
 # Wait for a single character input 
 echo ""
 read -n 1 -s -r -p "Press any key to continue..."

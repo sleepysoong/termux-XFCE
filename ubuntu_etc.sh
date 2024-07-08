@@ -67,7 +67,34 @@ install_base_packages(){
 	sleep 1
 	apt install locales -y  
 
+    sleep 1
+	echo -e "${GREEN}나눔fonts 전체설치.${WHITE}"
+    apt install -y fonts-nanum* 
+    
 	sleep 1
+	echo -e "${GREEN}im-config 설치.${WHITE}"
+    apt install -y im-config 
+
+    sleep 1
+	echo -e "${GREEN}하모니카 repo 추가.${WHITE}"
+	wget -qO- https://update.hamonikr.org/add-update-repo.apt | sudo -E bash - 
+	
+	sleep 1
+	echo -e "${GREEN}nimf-libhangul 설치.${WHITE}"
+    apt install -y nimf-libhangul 
+    
+	sleep 1
+	echo -e "${GREEN}fonts-noto-cjk 설치.${WHITE}"
+    apt install -y fonts-noto-cjk 
+
+	sleep 1
+	echo -e "${GREEN}fonts-roboto 설치.${WHITE}"
+    apt install -y fonts-roboto
+
+	sleep 1
+	echo -e "${GREEN}nimf 편집기 등록.${WHITE}"
+	im-config -n nimf
+
 	echo -e '
 #한국어 설정
 LANG=ko_KR.UTF-8
@@ -83,28 +110,19 @@ LC_ADDRESS=ko_KR.UTF-8
 LC_TELEPHONE=ko_KR.UTF-8
 LC_MEASUREMENT=ko_KR.UTF-8
 LC_IDENTIFICATION=ko_KR.UTF-8
-LANGUAGE=ko_KR.UTF-8' >> /home/$username/.profile
+LANGUAGE=ko_KR.UTF-8
+LC_ALL=
 
-    sleep 1
-    apt install -y fonts-nanum* 
-    
-	sleep 1
-    apt install -y im-config 
-    sleep 1
-	wget -qO- https://update.hamonikr.org/add-update-repo.apt | sudo -E bash - 
-	sleep 1
-    apt install -y nimf nimf-libhangul fonts-noto-cjk fonts-roboto 
-    
-	sleep 1
-	im-config -n nimf
-
-	echo -e '
 # 편집기 설정
 export GTK_IM_MODULE=nimf
 export QT4_IM_MODULE="nimf"
 export QT_IM_MODULE=nimf
 export XMODIFIERS="@im=nimf"
-nimf' >> /home/$username/.profile
+nimf
+
+# gpu 가속 설정
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.2' >> /home/$username/.profile
 
     sleep 1
 	echo -e "${GREEN}리브레오피스를 설치합니다.${WHITE}"
