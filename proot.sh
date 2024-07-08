@@ -17,7 +17,7 @@ trap finish EXIT
 
 username="$1"
 
-pkgs_proot=('sudo' 'wget' 'nala' 'jq' 'flameshot' 'conky-all')
+pkgs_proot=('sudo' 'wget' 'jq' 'flameshot' 'conky-all')
 
 #Install ubuntu proot
 pd install ubuntu
@@ -54,12 +54,6 @@ alias ls='eza -lF --icons'
 alias ll='ls -alhF'
 alias shutdown='kill -9 -1'
 alias cat='bat '
-alias apt='sudo nala '
-alias install='sudo nala install -y '
-alias remove='sudo nala remove -y '
-alias list='nala list --upgradeable'
-alias show='nala show '
-alias search='nala search '
 alias start='echo please run from termux, not ubuntu proot.'
 " >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
 

@@ -40,7 +40,7 @@ setup_proot() {
 proot-distro install ubuntu
 proot-distro login ubuntu --shared-tmp -- env DISPLAY=:1.0 apt update
 proot-distro login ubuntu --shared-tmp -- env DISPLAY=:1.0 apt upgrade -y
-proot-distro login ubuntu --shared-tmp -- env DISPLAY=:1.0 apt install sudo wget nala jq flameshot conky-all -y
+proot-distro login ubuntu --shared-tmp -- env DISPLAY=:1.0 apt install sudo wget jq flameshot conky-all -y
 
 #Create user
 proot-distro login ubuntu --shared-tmp -- env DISPLAY=:1.0 groupadd storage
@@ -62,9 +62,6 @@ alias ls='eza -lF --icons'
 alias ll='ls -alhF'
 alias shutdown='kill -9 -1'
 alias cat='bat '
-alias apt='sudo nala '
-alias install='nala install '
-alias uninstall='nala remove '
 alias start='echo "please run from termux, not ubuntu proot."'
 " >> $HOME/../usr/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
 
@@ -76,7 +73,7 @@ proot-distro login ubuntu --shared-tmp -- env DISPLAY=:1.0 cp /usr/share/zoneinf
 
 setup_xfce() {
 #Install xfce4 desktop and additional packages
-pkg install git neofetch virglrenderer-android papirus-icon-theme xfce4 xfce4-goodies eza pavucontrol-qt bat jq nala wmctrl firefox netcat-openbsd termux-x11-nightly eza -y
+pkg install git neofetch virglrenderer-android papirus-icon-theme xfce4 xfce4-goodies eza pavucontrol-qt bat jq wmctrl firefox netcat-openbsd termux-x11-nightly eza -y
 
 #Create .bashrc
 cp $HOME/../usr/var/lib/proot-distro/installed-rootfs/ubuntu/etc/skel/.bashrc $HOME/.bashrc
@@ -95,11 +92,6 @@ echo "
 alias ubuntu='proot-distro login ubuntu --user $username --shared-tmp'
 alias ls='eza -lF --icons'
 alias cat='bat '
-alias apt='nala $@ '
-alias update='nala update'
-alias upgrade='nala upgrade'
-alias install='nala install $@'
-alias uninstall='nala remove $@ '
 " >> $HOME/.bashrc
 
 #Put Firefox icon on Desktop
