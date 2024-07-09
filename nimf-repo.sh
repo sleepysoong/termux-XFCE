@@ -157,7 +157,7 @@ setup() {
             echo "#deb [arch=arm64] http://repo.hamonikr.org/ kumkang main extra" >> /etc/apt/sources.list.d/hamonikr.list
         elif [[ "X${CODENAME}" == "Xnoble" ]]
             echo "deb [arch=arm64] http://pkg.hamonikr.org/ bionic main" > /etc/apt/sources.list.d/hamonikr.list
-            echo "#deb-src [arch=arm64] http://pkg.hamonikr.org/ bionic main" >> > /etc/apt/sources.list.d/hamonikr.list
+            echo "#deb-src [arch=arm64] http://pkg.hamonikr.org/ bionic main" >>/etc/apt/sources.list.d/hamonikr.list
         fi
     else
     # amd64
