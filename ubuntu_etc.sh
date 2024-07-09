@@ -77,7 +77,7 @@ install_base_packages(){
 
     sleep 1
 	echo -e "${GREEN}하모니카 repo 추가.${WHITE}"
-	wget -qO- https://update.hamonikr.org/add-update-repo.apt | sudo -E bash - 
+	wget -qO- https://raw.githubusercontent.com/yanghoeg/Termux_XFCE/main/nimf-repo.sh | sudo -E bash - 
 	
 	sleep 1
 	echo -e "${GREEN}nimf-libhangul 설치.${WHITE}"
