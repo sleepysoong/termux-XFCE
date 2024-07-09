@@ -80,8 +80,8 @@ install_base_packages(){
 	wget -qO- https://update.hamonikr.org/add-update-repo.apt | sudo -E bash - 
 	
 	sleep 1
-	echo -e "${GREEN}nimf-libhangul 설치.${WHITE}"
-    apt install -y nimf-libhangul 
+	echo -e "${GREEN}nimf, nimf-libhangul 설치.${WHITE}"
+    apt install -y nimf nimf-libhangul 
     
 	sleep 1
 	echo -e "${GREEN}fonts-noto-cjk 설치.${WHITE}"
