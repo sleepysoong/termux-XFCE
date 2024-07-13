@@ -97,6 +97,15 @@ alias cat='bat '
 cp $HOME/../usr/share/applications/firefox.desktop $HOME/Desktop 
 chmod +x $HOME/Desktop/firefox.desktop
 
+cat <<'EOF' > ../usr/bin/prun
+#!/bin/bash
+varname=$(basename $HOME/../usr/var/lib/proot-distro/installed-rootfs/ubuntu/home/*)
+proot-distro login ubuntu --user $varname --shared-tmp -- env DISPLAY=:1.0 $@
+
+EOF
+chmod +x ../usr/bin/prun
+
+
 cat <<'EOF' > ../usr/bin/cp2menu
 #!/bin/bash
 
