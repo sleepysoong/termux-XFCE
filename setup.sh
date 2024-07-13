@@ -57,7 +57,6 @@ echo "export DISPLAY=:1.0" >> $HOME/../usr/var/lib/proot-distro/installed-rootfs
 
 #Set proot aliases
 echo "
-alias virgl='GALLIUM_DRIVER=virpipe '
 alias ls='eza -lF --icons'
 alias ll='ls -alhF'
 alias shutdown='kill -9 -1'
@@ -97,14 +96,6 @@ alias cat='bat '
 #Put Firefox icon on Desktop
 cp $HOME/../usr/share/applications/firefox.desktop $HOME/Desktop 
 chmod +x $HOME/Desktop/firefox.desktop
-
-cat <<'EOF' > ../usr/bin/prun
-#!/bin/bash
-varname=$(basename $HOME/../usr/var/lib/proot-distro/installed-rootfs/ubuntu/home/*)
-proot-distro login ubuntu --user $varname --shared-tmp -- env DISPLAY=:1.0 $@
-
-EOF
-chmod +x ../usr/bin/prun
 
 cat <<'EOF' > ../usr/bin/cp2menu
 #!/bin/bash
@@ -219,27 +210,6 @@ StartupNotify=false
 chmod +x $HOME/Desktop/kill_termux_x11.desktop
 mv $HOME/Desktop/kill_termux_x11.desktop $HOME/../usr/share/applications
 
-#Create XFCE Start and Shutdown
-cat <<'EOF' > start
-#!/bin/bash
-
-MESA_NO_ERROR=1 MESA_GL_VERSION_OVERRIDE=4.3COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 virgl_test_server_android --angle-gl & > /dev/null 2>&1
-sleep 1
-XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 &
-sleep 1
-am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity > /dev/null 2>&1
-sleep 1
-env DISPLAY=:1.0 GALLIUM_DRIVER=virpipe dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1
-
-sleep 5
-process_id=$(ps -aux | grep '[x]fce4-screensaver' | awk '{print $2}')
-kill "$process_id" > /dev/null 2>&1
-
-EOF
-
-chmod +x start
-mv start $HOME/../usr/bin
-
 #Shutdown Utility
 cat <<'EOF' > $HOME/../usr/bin/kill_termux_x11
 #!/bin/bash
@@ -300,7 +270,7 @@ unzip 2023-02-01.zip
 mv Fluent-icon-theme-2023-02-01/cursors/dist $HOME/../usr/share/icons/ 
 mv Fluent-icon-theme-2023-02-01/cursors/dist-dark $HOME/../usr/share/icons/
 cp -r $HOME/../usr/share/icons/dist-dark $HOME/../usr/var/lib/proot-distro/installed-rootfs/ubuntu/usr/share/icons/dist-dark
-rm -rf $HOME//Fluent*
+rm -rf $HOME/Fluent*
 rm 2023-02-01.zip
 
 cat <<'EOF' > $HOME/../usr/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.Xresources

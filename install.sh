@@ -25,8 +25,6 @@ read -r -p "Please enter username for proot installation: " username </dev/tty
 termux-change-repo
 pkg update -y -o Dpkg::Options::="--force-confold"
 pkg upgrade -y -o Dpkg::Options::="--force-confold"
-#sed -i '12s/^#//' $HOME/.termux/termux.properties
-
 
 # Display a message 
 clear -x
@@ -34,7 +32,7 @@ echo ""
 echo "Termux 저장소 접근 허용." 
 # Wait for a single character input 
 echo ""
-read -n 1 -s -r -p "Press any key to continue..."
+read -n 1 -s -r -p "아무키나 누르세요..."
 termux-setup-storage
 
 pkgs=('wget' 'ncurses-utils' 'dbus' 'proot-distro' 'x11-repo' 'tur-repo' 'pulseaudio')
@@ -67,7 +65,7 @@ echo ""
 echo "Installing Termux-X11 APK" 
 # Wait for a single character input 
 echo ""
-read -n 1 -s -r -p "Press any key to continue..."
+read -n 1 -s -r -p "아무키나 누르세요..."
 wget https://github.com/termux/termux-x11/releases/download/nightly/app-arm64-v8a-debug.apk
 mv app-arm64-v8a-debug.apk $HOME/storage/downloads/
 termux-open $HOME/storage/downloads/app-arm64-v8a-debug.apk

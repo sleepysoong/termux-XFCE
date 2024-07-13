@@ -30,12 +30,12 @@ termux_base_setup()
     sleep 1
     echo -e "${GREEN}사운드 설정.${WHITE}"
 
-echo "
-pulseaudio --start --exit-idle-time=-1
-pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1
-" > ~/.sound
+#echo "
+#pulseaudio --start --exit-idle-time=-1
+#pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1
+#" > ~/.sound
 
-echo "source .sound" >> $PREFIX/etc/bash.bashrc
+#echo "source ~/.sound" >> $PREFIX/etc/bash.bashrc
 
     sleep 1
     echo -e "${GREEN} alias 설정.${WHITE}"
@@ -49,7 +49,11 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 
     sleep 1
 	echo -e "${GREEN}unzip설치.${WHITE}"
-	pkg install -y unzip 2>/dev/null
+	pkg install -y unzip
+
+    sleep 1
+	echo -e "${GREEN}neofetch설치.${WHITE}"
+	pkg install -y neofetch
 
     echo -e "${GREEN}tur-repo추가${WHITE}"
     pkg install -y tur-repo
@@ -59,43 +63,43 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 
     sleep 1
     echo -e "${GREEN}x11-repo, root-repo 설치${WHITE}"
-    pkg install x11-repo -y 2>/dev/null
-	pkg install root-repo -y 2>/dev/null
+    pkg install x11-repo -y
+	pkg install root-repo -y
 	pkg update -y
 
     sleep 1
     echo -e "${GREEN}turmux-x11-nightly 설치 ${WHITE}"
-    pkg install -y termux-x11-nightly 2>/dev/null
+    pkg install -y termux-x11-nightly
     
     sleep 1
     echo -e "${GREEN}xorg-server-xvfb 설치${WHITE}"
-    pkg install -y xorg-server-xvfb 2>/dev/null
+    pkg install -y xorg-server-xvfb
 
     echo -e "${GREEN}vulkan-tools 설치${WHITE}"
-	pkg install -y vulkan-tools 2>/dev/null
+	pkg install -y vulkan-tools
     sleep 1
-	pkg install -y vulkan-loader-android 2>/dev/null
+	pkg install -y vulkan-loader-android
 
     sleep 1
     echo -e "${GREEN}mesa-zink, mesa-vulkan-icd-freedreno-dri3 설치${WHITE}"
-	pkg install -y mesa-zink mesa-vulkan-icd-freedreno-dri3 2>/dev/null
+	pkg install -y mesa-zink mesa-vulkan-icd-freedreno-dri3
 
     sleep 1
     echo -e "${GREEN}turmux-x11-nightly 설치 ${WHITE}"
-    pkg install -y termux-x11-nightly 2>/dev/null
+    pkg install -y termux-x11-nightly
     
     sleep 1
     echo -e "${GREEN}한글 설치 ${WHITE}"
-    pkg install fcitx5-hangul libhangul libhangul-static fcitx5-configtool -y 2>/dev/null
+    pkg install fcitx5-hangul libhangul libhangul-static fcitx5-configtool -y
 
     sleep 1
     echo -e "${GREEN}which 설치${WHITE}"
-    pkg install -y which 2>/dev/null
+    pkg install -y which
 
     sleep 1
     echo -e "${GREEN}Termux-widget 설치.${WHITE}"
     wget $TERMUX_WIDGET_LINK -O termux-widget_v0.13.0+github-debug.apk
-	termux-open termux-widget_v0.13.0+github-debug.apk 2>/dev/null
+	termux-open termux-widget_v0.13.0+github-debug.apk
 
 	echo -e "${GREEN}termux widget 설치파일 삭제.${WHITE}"
     rm termux-widget*.apk
@@ -108,6 +112,8 @@ echo -e '#!/bin/sh
 killall -9 termux-x11 Xwayland pulseaudio virgl_test_server_android virgl_test_server
 termux-wake-lock; termux-toast "Starting X11"
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity
+sleep 1
+pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1 > /dev/null 2>&1
 sleep 1
 virgl_test_server_android --angle-gl & > /dev/null 2>&1
 sleep 1
@@ -125,15 +131,15 @@ DISPLAY=:1.0 MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform
 termux_etc_install(){
     sleep 1
     echo -e "${GREEN}firefox 설치 ${WHITE}"
-    pkg install -y firefox  2>/dev/null
+    pkg install -y firefox 
 
     sleep 1
     echo -e "${GREEN}chromium 설치 ${WHITE}"
-    pkg install -y chromium  2>/dev/null
+    pkg install -y chromium 
 
     sleep 1
     echo -e "${GREEN}gimp 설치 ${WHITE}"
-    pkg install -y gimp  2>/dev/null
+    pkg install -y gimp 
 }
 
 termux_hangover_wine_install()
@@ -148,15 +154,15 @@ termux_hangover_wine_install()
     sleep 1
 
     echo -e "${GREEN}의존프로그램 설치${WHITE}"
-	pkg install -y cabextract clang 7zip freetype gnutls libandroid-shmem-static libx11 xorgproto mesa-demos libdrm libpixman libxfixes libjpeg-turbo xtrans libxxf86vm xorg-xrandr xorg-font-util xorg-util-macros libxfont2 libxkbfile libpciaccess xcb-util-renderutil xcb-util-image xcb-util-keysyms xcb-util-wm xorg-xkbcomp xkeyboard-config libxdamage libxinerama libxshmfence 2>/dev/null
+	pkg install -y cabextract clang 7zip freetype gnutls libandroid-shmem-static libx11 xorgproto mesa-demos libdrm libpixman libxfixes libjpeg-turbo xtrans libxxf86vm xorg-xrandr xorg-font-util xorg-util-macros libxfont2 libxkbfile libpciaccess xcb-util-renderutil xcb-util-image xcb-util-keysyms xcb-util-wm xorg-xkbcomp xkeyboard-config libxdamage libxinerama libxshmfence
 
     sleep 1
     echo -e "${GREEN}hangover-wine 설치${WHITE}"
-    pkg install -y hangover-wine 2>/dev/null
+    pkg install -y hangover-wine
 
     sleep 1
     echo -e "${GREEN}winetricks 설치${WHITE}"
-    pkg install -y winetricks 2>/dev/null
+    pkg install -y winetricks
 
 
 }
