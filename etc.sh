@@ -30,13 +30,6 @@ termux_base_setup()
     sleep 1
     echo -e "${GREEN}사운드 설정.${WHITE}"
 
-echo '
-pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
-pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1
-' > ~/.sound
-
-echo "source ~/.sound" >> $PREFIX/etc/bash.bashrc
-
     sleep 1
     echo -e "${GREEN} alias 설정.${WHITE}"
     echo "
@@ -134,17 +127,22 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 echo -e '#!/bin/sh
 killall -9 termux-x11 Xwayland pulseaudio virgl_test_server_android virgl_test_server
 termux-wake-lock; termux-toast "Starting X11"
+
+pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1 > /dev/null 2>&1
+
+XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 & > /dev/null 2>&1
+sleep 1
+
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity
 sleep 1
-#pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
-#pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1
-sleep 1
-virgl_test_server_android --angle-gl & > /dev/null 2>&1
-sleep 1
-XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 &
-sleep 1
-#DISPLAY=:1.0 xfce4-session &
-DISPLAY=:1.0 MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 dbus-launch --exit-with-session xfce4-session &' > ~/.shortcuts/startXFCE
+
+MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 virgl_test_server_android --angle-gl & > /dev/null 2>&1
+#env DISPLAY=:1.0 dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1
+env DISPLAY=:1.0 GALLIUM_DRIVER=zink dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1
+export PULSE_SERVER=127.0.0.1 > /dev/null 2>&1
+sleep 5
+process_id=$(ps -aux | grep '[x]fce4-screensaver' | awk '{print $2}')
+kill "$process_id" > /dev/null 2>&1 ' > ~/.shortcuts/startXFCE
 
     chmod +x ~/.shortcuts/startXFCE
 

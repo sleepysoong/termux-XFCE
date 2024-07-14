@@ -2,7 +2,7 @@
 
 username="$1"
 
-pkgs=('git' 'neofetch' 'virglrenderer-android' 'papirus-icon-theme' 'xfce4' 'xfce4-goodies' 'eza' 'pavucontrol-qt' 'bat' 'jq' 'wmctrl' 'firefox' 'netcat-openbsd' 'termux-x11-nightly' 'eza')
+pkgs=('git' 'neofetch' 'virglrenderer-android' 'papirus-icon-theme' 'xfce4' 'xfce4-goodies' 'eza' 'pavucontrol-qt' 'bat' 'jq' 'wmctrl' 'firefox' 'netcat-openbsd' 'termux-x11-nightly')
 
 #Install xfce4 desktop and additional packages
 pkg install "${pkgs[@]}" -y -o Dpkg::Options::="--force-confold"
@@ -14,8 +14,8 @@ chmod +x $HOME/Desktop/firefox.desktop
 #Set aliases
 echo "
 alias ubuntu='proot-distro login ubuntu --user $username --shared-tmp'
-alias zrun='proot-distro login ubuntu --user $username --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@'
-alias zrunhud='proot-distro login ubuntu --user $username --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform GALLIUM_HUD=fps $@'
+#alias zrun='proot-distro login ubuntu --user $username --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@'
+#alias zrunhud='proot-distro login ubuntu --user $username --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform GALLIUM_HUD=fps $@'
 alias hud='GALLIUM_HUD=fps $@'
 alias ls='eza -lF --icons'
 alias cat='bat $@'

@@ -157,6 +157,7 @@ StartupNotify=false
 chmod +x "$HOME/Desktop/app-installer.desktop"
 fi
 
+
 #Shutdown Utility
 cat <<'EOF' > $PREFIX/bin/kill_termux_x11
 #!/bin/bash

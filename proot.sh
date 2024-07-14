@@ -17,7 +17,7 @@ trap finish EXIT
 
 username="$1"
 
-pkgs_proot=('sudo' 'wget' 'jq' 'flameshot' 'conky-all')
+pkgs_proot=('sudo' 'wget' 'jq' 'flameshot' 'conky-all' 'zenity')
 
 #Install ubuntu proot
 pd install ubuntu
