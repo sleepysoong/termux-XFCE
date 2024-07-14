@@ -94,7 +94,7 @@ cat <<'EOF' > "$PREFIX/bin/app-installer"
 #!/bin/bash
 
 # Define the directory paths
-INSTALLER_DIR="$HOME/         Installer"
+INSTALLER_DIR="$HOME/.App-Installer"
 REPO_URL="https://github.com/yanghoeg/App-Installer.git"
 DESKTOP_DIR="$HOME/Desktop"
 APP_DESKTOP_FILE="$DESKTOP_DIR/app-installer.desktop"

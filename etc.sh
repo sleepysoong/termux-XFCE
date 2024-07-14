@@ -136,8 +136,8 @@ sleep 1
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity
 sleep 1
 
-MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 virgl_test_server_android --angle-gl &
-env DISPLAY=:1.0 dbus-launch --exit-with-session xfce4-session &' > ~/.shortcuts/startXFCE
+MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 virgl_test_server_android --angle-gl & > /dev/null 2>&1
+env DISPLAY=:1.0 dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1' > ~/.shortcuts/startXFCE
 
     chmod +x ~/.shortcuts/startXFCE
 
