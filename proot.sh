@@ -69,10 +69,10 @@ sed -i '327s/termux/proot/' $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu
 
 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/conky.tar.gz
 tar -xvzf conky.tar.gz
-rm conky.tar.gz
+rm -f conky.tar.gz
 mkdir $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.config
 mv .config/conky/ $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.config
-mv .config/neofetch $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.config
+mv .config/neofetch/ $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.config
 
 #Set theming from xfce to proot
 cp -r $PREFIX/share/icons/dist-dark $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/usr/share/icons/dist-dark

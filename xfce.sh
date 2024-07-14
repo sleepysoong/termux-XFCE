@@ -13,6 +13,7 @@ chmod +x $HOME/Desktop/firefox.desktop
 
 #Set aliases
 echo "
+LD_PRELOAD=/system/lib64/libskcodec.so
 alias ubuntu='proot-distro login ubuntu --user $username --shared-tmp'
 #alias zrun='proot-distro login ubuntu --user $username --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@'
 #alias zrunhud='proot-distro login ubuntu --user $username --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform GALLIUM_HUD=fps $@'
