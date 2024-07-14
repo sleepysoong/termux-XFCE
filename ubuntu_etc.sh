@@ -42,7 +42,7 @@ install_base_packages(){
 
 	sleep 1
 	echo -e "${GREEN}sudo 설치.${WHITE}"
-	apt install sudo  -y  s
+	apt install sudo  -y
 
 	sleep 1
 	echo -e "${GREEN}vim 설치.${WHITE}"
