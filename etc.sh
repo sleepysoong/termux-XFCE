@@ -128,6 +128,7 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 	echo -e "${GREEN}termux widget 설치파일 삭제.${WHITE}"
     rm termux-widget*.apk
 
+    echo -e "${GREEN}shortcuts 생성.${WHITE}"
     mkdir ~/.shortcuts
     
 echo -e '#!/bin/sh
@@ -148,9 +149,8 @@ DISPLAY=:1.0 MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform
     chmod +x ~/.shortcuts/startXFCE
 
     sleep 1
-
-    echo "sh $HOME/.shortcuts/startXFCE" > $PREFIX/bin/start
-    chmod $PREFIX/bin/start
+    echo "$HOME/.shortcuts/startXFCE" > $PREFIX/bin/startXFCE
+    chmod +x $PREFIX/bin/startXFCE
 }
 
 termux_etc_install(){
