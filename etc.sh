@@ -51,10 +51,6 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 	echo -e "${GREEN}unzip설치.${WHITE}"
 	pkg install -y unzip
 
-    sleep 1
-	echo -e "${GREEN}neofetch설치.${WHITE}"
-	pkg install -y neofetch
-
     echo -e "${GREEN}tur-repo추가${WHITE}"
     pkg install -y tur-repo
     if ! grep -q "tur-multilib tur-hacking" ~/../usr/etc/apt/sources.list.d/tur.list; then
@@ -67,6 +63,34 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 	pkg install root-repo -y
 	pkg update -y
 
+    sleep 1
+	echo -e "${GREEN}eza 설치.${WHITE}"
+	pkg install -y eza
+
+    sleep 1
+	echo -e "${GREEN}neofetch설치.${WHITE}"
+	pkg install -y neofetch
+
+    sleep 1
+	echo -e "${GREEN} bat 설치.${WHITE}"
+	pkg install -y  bat
+    
+    sleep 1
+	echo -e "${GREEN}pavucontrol-qt 설치.${WHITE}"
+	pkg install -y pavucontrol-qt
+
+    sleep 1
+	echo -e "${GREEN}jq 설치.${WHITE}"
+	pkg install -y jq
+ 
+    sleep 1
+	echo -e "${GREEN}wmctrl 설치.${WHITE}"
+	pkg install -y wmctrl
+
+    sleep 1
+	echo -e "${GREEN}netcat-openbsd 설치.${WHITE}"
+	pkg install -y netcat-openbsd
+  
     sleep 1
     echo -e "${GREEN}turmux-x11-nightly 설치 ${WHITE}"
     pkg install -y termux-x11-nightly
@@ -164,9 +188,7 @@ termux_hangover_wine_install()
     echo -e "${GREEN}winetricks 설치${WHITE}"
     pkg install -y winetricks
 
-
 }
-
 
 termux_base_setup
 termux_etc_install

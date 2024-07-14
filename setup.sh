@@ -8,8 +8,8 @@ finish() {
   local ret=$?
   if [ ${ret} -ne 0 ] && [ ${ret} -ne 130 ]; then
     echo
-    echo "ERROR: Failed to setup XFCE on Termux."
-    echo "Please refer to the error message(s) above"
+    echo "ERROR: Termux XFCE 설치를 실패하였습니다."
+    echo "위 error message(s)를 참고해주세요."
   fi
 }
 
@@ -20,7 +20,7 @@ clear
 echo ""
 echo "This script will install XFCE Desktop in Termux along with a ubuntu proot"
 echo ""
-read -r -p "Please enter username for proot installation: " username </dev/tty
+read -r -p "proot설치를 위한 사용자 이름을 지정하세요. id: " username </dev/tty
 
 termux-change-repo
 pkg update -y -o Dpkg::Options::="--force-confold"

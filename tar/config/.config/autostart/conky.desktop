@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=conky
+Comment=
+Exec=prun conky -c .config/conky/Alterf/Alterf.conf &> /dev/null &
+Icon=conky
+Path=
+Terminal=false
+StartupNotify=false

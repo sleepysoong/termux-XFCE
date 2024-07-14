@@ -20,7 +20,7 @@ clear
 echo ""
 echo "이 스크립트는 Termux XFCE Desktop 및 proot-distro ubuntu를 설치 합니다."
 echo ""
-read -r -p "Please enter username for proot installation: " username </dev/tty
+read -r -p "사용자이름을 입력하세요: " username </dev/tty
 
 termux-change-repo
 pkg update -y -o Dpkg::Options::="--force-confold"
@@ -54,9 +54,9 @@ wget https://github.com/yanghoeg/Termux_XFCE/raw/main/etc.sh
 chmod +x *.sh
 
 ./xfce.sh "$username"
+./etc.sh
 ./proot.sh "$username"
 ./utils.sh
-./etc.sh
 ./theme.sh
 
 # Display a message 
@@ -75,17 +75,7 @@ termux-reload-settings
 
 clear -x
 echo ""
-echo ""
 echo "성공적으로 설치하였습니다."
-echo ""
-echo "You can now connect to your Termux XFCE4 Desktop to open the desktop use the command start"
-echo ""
-echo "This will start the termux-x11 server in termux and start the XFCE Desktop and then open the installed Termux-X11 app."
-echo ""
-echo "To exit, double click the Kill Termux X11 icon on the panel."
-echo ""
-echo "Enjoy your Termux XFCE4 Desktop experience!"
-echo ""
 echo ""
 
 rm xfce.sh

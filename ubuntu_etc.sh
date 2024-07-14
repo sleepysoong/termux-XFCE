@@ -33,38 +33,51 @@ install_base_packages(){
 	sleep 1
 	apt install dialog psmisc htop wget glmark2 -y 
 	sleep 1
+	echo -e "${GREEN}meson 설치.${WHITE}"
 	apt install meson  -y  
+	
 	sleep 1
+	echo -e "${GREEN}ninja-build 설치.${WHITE}"
 	apt install ninja-build  -y  
 
 	sleep 1
-	apt install sudo  -y  
+	echo -e "${GREEN}sudo 설치.${WHITE}"
+	apt install sudo  -y  s
 
 	sleep 1
+	echo -e "${GREEN}vim 설치.${WHITE}"
 	apt install vim  -y  
 
 	sleep 1
+	echo -e "${GREEN}nano 설치.${WHITE}"
 	apt install nano  -y  
 
 	sleep 1
+	echo -e "${GREEN}onboard 설치.${WHITE}"
 	apt install onboard  -y  
 
 	sleep 1
+	echo -e "${GREEN}x11-apps 설치.${WHITE}"
 	apt install x11-apps -y  
 
 	sleep 1
+	echo -e "${GREEN}neofetch 설치.${WHITE}"
 	apt install neofetch -y  
 
 	sleep 1
-	apt install aptitude  -y  
+	echo -e "${GREEN}aptitude 설치.${WHITE}"
+	apt install aptitude -y  
 
 	sleep 1
+	echo -e "${GREEN}language-pack-ko 설치.${WHITE}"
 	apt install language-pack-ko  -y  
 
 	sleep 1
+	echo -e "${GREEN}language-pack-gnome-ko-base 설치.${WHITE}"
 	apt install language-pack-gnome-ko-base -y  
 
 	sleep 1
+	echo -e "${GREEN}locales 설치.${WHITE}"
 	apt install locales -y  
 
     sleep 1

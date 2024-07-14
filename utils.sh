@@ -95,7 +95,7 @@ cat <<'EOF' > "$PREFIX/bin/app-installer"
 
 # Define the directory paths
 INSTALLER_DIR="$HOME/.App-Installer"
-REPO_URL="https://github.com/phoenixbyrd/App-Installer.git"
+REPO_URL="https://github.com/yanghoeg/App-Installer.git"
 DESKTOP_DIR="$HOME/Desktop"
 APP_DESKTOP_FILE="$DESKTOP_DIR/app-installer.desktop"
 
@@ -175,6 +175,7 @@ MESA_NO_ERROR=1 MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.
 #GALLIUM_DRIVER=virpipe MESA_GL_VERSION_OVERRIDE=4.0 program
 
 #MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform program
+MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform
 
 env DISPLAY=:1.0 dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1
 # Set audio server
