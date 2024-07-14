@@ -1,7 +1,7 @@
 # Termux_XFCE
 
 https://github.com/phoenixbyrd/Termux_XFCE/tree/main의 debian proot에서 ubuntu proot로 변경하였습니다.
-이회 fcitx5-hangul 등의 설치를 추가하였습니다.
+이외 fcitx5-hangul 등의 설치를 추가하였습니다.
 
 Sets up a termux XFCE desktop and a ubuntu proot install. This setup uses Termux-X11, the termux-x11 server will be installed and you will be prompted to allow termux to install the Android APK.
 

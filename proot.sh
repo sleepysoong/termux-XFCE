@@ -41,7 +41,6 @@ echo "export DISPLAY=:1.0" >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubun
 
 #Set proot aliases
 echo "
-alias zink='MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@'
 alias hud='GALLIUM_HUD=fps $@'
 alias ls='eza -lF --icons'
 alias ll='ls -alhF'

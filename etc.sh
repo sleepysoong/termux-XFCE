@@ -33,6 +33,8 @@ termux_base_setup()
     sleep 1
     echo -e "${GREEN} alias 설정.${WHITE}"
     echo "
+export LD_PRELOAD=/system/lib64/libskcodec.so
+
 alias ll='ls -alhF'
 alias zink='GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@ '
 #alias zink='GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6COMPAT TU_DEBUG=noconform $@ '
