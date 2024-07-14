@@ -35,13 +35,6 @@ chmod u+rw $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/etc/sudoers
 echo "$username ALL=(ALL) NOPASSWD:ALL" | tee -a $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/etc/sudoers > /dev/null
 chmod u-w  $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/etc/sudoers
 
-wget https://github.com/yanghoeg/Termux_XFCE/raw/main/ubuntu_etc.sh
-chmod +x ./ubuntu_etc.sh
-cp ./ubuntu_etc.sh $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
-chmod +x $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
-proot-distro login ubuntu --user root --shared-tmp --no-sysvipc -- bash -c "./ubuntu_etc.sh $username"
-rm $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
-
 
 #Set proot DISPLAY
 echo "export DISPLAY=:1.0" >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
@@ -87,3 +80,10 @@ cp .fonts/NotoColorEmoji-Regular.ttf $PREFIX/var/lib/proot-distro/installed-root
 #Setup Hardware Acceleration
 pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
 pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
+
+wget https://github.com/yanghoeg/Termux_XFCE/raw/main/ubuntu_etc.sh
+chmod +x ./ubuntu_etc.sh
+cp ./ubuntu_etc.sh $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
+chmod +x $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
+proot-distro login ubuntu --user root --shared-tmp --no-sysvipc -- bash -c "./ubuntu_etc.sh $username"
+rm $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh

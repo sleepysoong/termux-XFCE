@@ -25,6 +25,8 @@ read -r -p "사용자 이름(id)을 입력하세요.: " username </dev/tty
 termux-change-repo
 pkg update -y -o Dpkg::Options::="--force-confold"
 pkg upgrade -y -o Dpkg::Options::="--force-confold"
+sed -i '12s/^#//' $HOME/.termux/termux.properties
+
 
 # Display a message 
 clear -x
