@@ -30,12 +30,12 @@ termux_base_setup()
     sleep 1
     echo -e "${GREEN}사운드 설정.${WHITE}"
 
-#echo "
-#pulseaudio --start --exit-idle-time=-1
-#pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1
-#" > ~/.sound
+echo '
+pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
+pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1
+' > ~/.sound
 
-#echo "source ~/.sound" >> $PREFIX/etc/bash.bashrc
+echo "source ~/.sound" >> $PREFIX/etc/bash.bashrc
 
     sleep 1
     echo -e "${GREEN} alias 설정.${WHITE}"
@@ -61,7 +61,7 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
     echo -e "${GREEN}x11-repo, root-repo 설치${WHITE}"
     pkg install x11-repo -y
 	pkg install root-repo -y
-	pkg update -y
+	pkg update -y && pkg upgrade -y
 
     sleep 1
 	echo -e "${GREEN}eza 설치.${WHITE}"
@@ -129,15 +129,14 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
     rm termux-widget*.apk
 
     mkdir ~/.shortcuts
-    echo "sh $PREFIX/bin/start" > ~/.shortcuts/startXFCE
-    chmod +x ~/.shortcuts/startXFCE
-
+    
 echo -e '#!/bin/sh
 killall -9 termux-x11 Xwayland pulseaudio virgl_test_server_android virgl_test_server
 termux-wake-lock; termux-toast "Starting X11"
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity
 sleep 1
-pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1 > /dev/null 2>&1
+#pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
+#pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1
 sleep 1
 virgl_test_server_android --angle-gl & > /dev/null 2>&1
 sleep 1
@@ -150,6 +149,8 @@ DISPLAY=:1.0 MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform
 
     sleep 1
 
+    echo "sh $HOME/.shortcuts/startXFCE" > $PREFIX/bin/start
+    chmod $PREFIX/bin/start
 }
 
 termux_etc_install(){

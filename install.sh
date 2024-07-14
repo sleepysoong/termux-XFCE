@@ -20,7 +20,7 @@ clear
 echo ""
 echo "이 스크립트는 Termux XFCE Desktop 및 proot-distro ubuntu를 설치 합니다."
 echo ""
-read -r -p "사용자 이름을 입력하세요. id: " username </dev/tty
+read -r -p "사용자 이름(id)을 입력하세요.: " username </dev/tty
 
 termux-change-repo
 pkg update -y -o Dpkg::Options::="--force-confold"
