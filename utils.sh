@@ -134,9 +134,11 @@ fi
 
 # Ensure the app-installer script is executable
 chmod +x "$INSTALLER_DIR/app-installer"
+chmod +x "$INSTALLER_DIR/install.sh"
 
 EOF
 chmod +x "$PREFIX/bin/app-installer"
+sleep 1
 bash $PREFIX/bin/app-installer
 
 # Check if the .desktop file exists
