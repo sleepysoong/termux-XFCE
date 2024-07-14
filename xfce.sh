@@ -14,11 +14,11 @@ chmod +x $HOME/Desktop/firefox.desktop
 #Set aliases
 echo "
 alias ubuntu='proot-distro login ubuntu --user $username --shared-tmp'
-alias zrun='proot-distro login ubuntu --user $username --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform '
-alias zrunhud='proot-distro login ubuntu --user $username --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform GALLIUM_HUD=fps '
-alias hud='GALLIUM_HUD=fps '
+alias zrun='proot-distro login ubuntu --user $username --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@'
+alias zrunhud='proot-distro login ubuntu --user $username --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform GALLIUM_HUD=fps $@'
+alias hud='GALLIUM_HUD=fps $@'
 alias ls='eza -lF --icons'
-alias cat='bat '
+alias cat='bat $@'
 " >> $PREFIX/etc/bash.bashrc
 
 #Download Wallpaper
@@ -40,7 +40,7 @@ wget https://github.com/vinceliuice/Fluent-icon-theme/archive/refs/tags/2024-02-
 unzip 2024-02-25.zip
 mv Fluent-icon-theme-2024-02-25/cursors/dist $PREFIX/share/icons/ 
 mv Fluent-icon-theme-2024-02-25/cursors/dist-dark $PREFIX/share/icons/
-rm -rf $HOME//Fluent*
+rm -rf $HOME/Fluent*
 rm 2024-02-25.zip
 
 #Setup Fonts
@@ -51,7 +51,7 @@ mv otf/static/* .fonts/ && rm -rf otf
 mv ttf/* .fonts/ && rm -rf ttf/
 rm -rf woff2/ && rm -rf CascadiaCode-2111.01.zip
 
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.2/Meslo.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Meslo.zip
 unzip Meslo.zip
 mv *.ttf .fonts/
 rm Meslo.zip

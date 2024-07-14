@@ -49,7 +49,6 @@ mkdir -p Downloads
 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/xfce.sh
 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/proot.sh
 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/utils.sh
-wget https://github.com/yanghoeg/Termux_XFCE/raw/main/theme.sh
 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/etc.sh
 chmod +x *.sh
 
@@ -57,7 +56,6 @@ chmod +x *.sh
 ./etc.sh
 ./proot.sh "$username"
 ./utils.sh
-./theme.sh
 
 # Display a message 
 clear -x
@@ -82,5 +80,4 @@ rm xfce.sh
 rm proot.sh
 rm utils.sh
 rm etc.sh
-rm theme.sh
 rm install.sh
