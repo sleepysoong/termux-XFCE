@@ -1,8 +1,8 @@
 #!/bin/bash
 
 killall conky
-sleep 2s
+sleep 1
 		
-GALLIUM_DRIVER=zink conky -c .config/conky/Alterf/Alterf.conf
+GALLIUM_DRIVER=virvpipe conky -c .config/conky/Alterf/Alterf.conf &> /dev/null &
 
 exit
