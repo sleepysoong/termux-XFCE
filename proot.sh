@@ -41,8 +41,6 @@ echo "export DISPLAY=:1.0" >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubun
 
 #Set proot aliases
 echo "
-export LD_PRELOAD=/system/lib64/libskcodec.so
-
 alias hud='GALLIUM_HUD=fps '
 alias ls='eza -lF --icons'
 alias ll='ls -alhF'
