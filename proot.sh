@@ -39,6 +39,9 @@ chmod u-w  $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/etc/sudoers
 #Set proot DISPLAY
 echo "export DISPLAY=:1.0" >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
 
+#Set Sound
+echo "LD_PRELOAD=/system/lib64/libskcodec.so" >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
+
 #Set proot aliases
 echo "
 alias hud='GALLIUM_HUD=fps '

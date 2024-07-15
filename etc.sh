@@ -33,11 +33,15 @@ termux_base_setup()
     sleep 1
     echo -e "${GREEN} alias 설정.${WHITE}"
     echo "
-export LD_PRELOAD=/system/lib64/libskcodec.so
-
 alias ll='ls -alhF'
-alias zink='GALLIUM_DRIVER=zink TU_DEBUG=noconform '
+alias zink='GALLIUM_DRIVER=zink '
 alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
+
+echo '
+
+LD_PRELOAD=/system/lib64/libskcodec.so
+pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1 & > /dev/null 2>&1
+pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1' >> $PREFIX/etc/bash.bashrc
 
     source $PREFIX/etc/bash.bashrc
 
@@ -96,12 +100,15 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
     echo -e "${GREEN}vulkan-tools 설치${WHITE}"
     sleep 1
 	pkg install -y vulkan-tools
+    
     sleep 1
 	pkg install -y vulkan-loader-android
 
     sleep 1
     echo -e "${GREEN}mesa-zink, mesa-vulkan-icd-freedreno-dri3 설치${WHITE}"
-	pkg install -y mesa-zink mesa-vulkan-icd-freedreno-dri3
+	pkg install -y mesa-zink 
+    sleep 1
+    pkg install -y mesa-vulkan-icd-freedreno-dri3
 
     sleep 1
     echo -e "${GREEN}turmux-x11-nightly 설치 ${WHITE}"
@@ -129,8 +136,6 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 echo -e '#!/data/data/com.termux/files/usr/bin/bash
 killall -9 termux-x11 Xwayland pulseaudio virgl_test_server_android virgl_test_server
 termux-wake-lock; termux-toast "Starting X11"
-
-pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1 & > /dev/null 2>&1
 
 XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 & > /dev/null 2>&1
 sleep 1
