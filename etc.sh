@@ -21,8 +21,8 @@ termux_base_setup()
     sleep 1
     echo -e "${GREEN}termux 외부앱 허용, 진동-> 무음으로 변경.${WHITE}"
     # 기본세팅 외부앱 사용가능
-    sleep 1
-    sed -i 's/# allow-external-apps = true/allow-external-apps = true/g' /data/data/com.termux/files/home/.termux/termux.properties
+    #sleep 1
+    #sed -i 's/# allow-external-apps = true/allow-external-apps = true/g' /data/data/com.termux/files/home/.termux/termux.properties
     # 진동:무음
     sleep 1
     sed -i 's/# bell-character = ignore/bell-character = ignore/g' /data/data/com.termux/files/home/.termux/termux.properties
@@ -36,8 +36,7 @@ termux_base_setup()
 export LD_PRELOAD=/system/lib64/libskcodec.so
 
 alias ll='ls -alhF'
-alias zink='GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@ '
-#alias zink='GALLIUM_DRIVER=zink MESA_GL_VERSION_OVERRIDE=4.6COMPAT TU_DEBUG=noconform $@ '
+alias zink='GALLIUM_DRIVER=zink TU_DEBUG=noconform '
 alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 
     source $PREFIX/etc/bash.bashrc
@@ -95,6 +94,7 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
     pkg install -y xorg-server-xvfb
 
     echo -e "${GREEN}vulkan-tools 설치${WHITE}"
+    sleep 1
 	pkg install -y vulkan-tools
     sleep 1
 	pkg install -y vulkan-loader-android

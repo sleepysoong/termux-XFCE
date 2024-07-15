@@ -41,11 +41,13 @@ echo "export DISPLAY=:1.0" >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubun
 
 #Set proot aliases
 echo "
-alias hud='GALLIUM_HUD=fps $@'
+export LD_PRELOAD=/system/lib64/libskcodec.so
+
+alias hud='GALLIUM_HUD=fps '
 alias ls='eza -lF --icons'
 alias ll='ls -alhF'
 alias shutdown='kill -9 -1'
-alias cat='bat $@'
+alias cat='bat '
 alias start='echo please run from termux, not ubuntu proot.'
 " >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
 

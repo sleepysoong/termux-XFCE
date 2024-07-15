@@ -50,7 +50,11 @@ install_base_packages(){
 
 	sleep 1
 	echo -e "${GREEN}nano 설치.${WHITE}"
-	apt install nano  -y  
+	apt install nano  -y 
+
+	sleep 1
+	echo -e "${GREEN}winbind 설치.${WHITE}"
+	apt install winbind -y  
 
 	sleep 1
 	echo -e "${GREEN}onboard 설치.${WHITE}"
