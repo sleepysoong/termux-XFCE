@@ -126,13 +126,13 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
     echo -e "${GREEN}shortcuts 생성.${WHITE}"
     mkdir ~/.shortcuts
     
-echo -e '#!/bin/sh
+echo -e '#!/data/data/com.termux/files/usr/bin/bash
 killall -9 termux-x11 Xwayland pulseaudio virgl_test_server_android virgl_test_server
 termux-wake-lock; termux-toast "Starting X11"
 
-pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
+pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1 & > /dev/null 2>&1
 
-XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 &
+XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 & > /dev/null 2>&1
 sleep 1
 
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity

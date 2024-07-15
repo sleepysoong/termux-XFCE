@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 cat <<'EOF' > $PREFIX/bin/prun
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/*)
 pd login ubuntu --user $varname --shared-tmp -- env DISPLAY=:1.0 $@
 
@@ -9,7 +9,7 @@ EOF
 chmod +x $PREFIX/bin/prun
 
 cat <<'EOF' > $PREFIX/bin/zrun
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/*)
 pd login ubuntu --user $varname --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@
 
@@ -17,7 +17,7 @@ EOF
 chmod +x $PREFIX/bin/zrun
 
 cat <<'EOF' > $PREFIX/bin/zrunhud
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/*)
 pd login ubuntu --user $varname --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform GALLIUM_HUD=fps $@
 
@@ -27,7 +27,7 @@ chmod +x $PREFIX/bin/zrunhud
 #cp2menu utility ... Allows copying of ubuntu proot desktop menu items into Termux xfce menu to allow for launching programs from ubuntu proot from within the xfce menu rather than launching from terminal. 
 
 cat <<'EOF' > $PREFIX/bin/cp2menu
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 cd
 
@@ -91,7 +91,7 @@ chmod +x $PREFIX/share/applications/cp2menu.desktop
 
 #App Installer Utility .. For installing additional applications not available in Termux or ubuntu proot repositories. 
 cat <<'EOF' > "$PREFIX/bin/app-installer"
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 # Define the directory paths
 INSTALLER_DIR="$HOME/.App-Installer"
@@ -160,7 +160,7 @@ fi
 
 #Start script
 cat <<'EOF' > start
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 # Enable PulseAudio over Network
 pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1 > /dev/null 2>&1
@@ -193,7 +193,7 @@ mv start $PREFIX/bin
 
 #Shutdown Utility
 cat <<'EOF' > $PREFIX/bin/kill_termux_x11
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 # Check if Apt, dpkg, or Nala is running in Termux or Proot
 if pgrep -f 'apt|apt-get|dpkg|nala'; then

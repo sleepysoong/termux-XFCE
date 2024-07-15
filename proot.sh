@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 
 # Unofficial Bash Strict Mode
 set -euo pipefail
