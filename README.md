@@ -20,17 +20,19 @@ curl -sL https://raw.githubusercontent.com/yanghoeg/Termux_XFCE/main/install.sh 
 
 
 Join the Discord for any questions, help, suggestions, etc. [https://discord.gg/pNMVrZu5dm](https://discord.gg/pNMVrZu5dm)  
+위 디스코드는 코드 제작자의 디스코드 입니다.
 
 &nbsp;
 
-![Desktop Screenshot](desktop.png)
-  
+![Screenshot_20240715_122525_TermuxX11](https://github.com/user-attachments/assets/d54a5da5-8b80-4baf-821a-76f97d693c40)
+
   
 # Use Case
   
 This is is how I personally use Termux on my Galaxy Fold 3, script was created mainly for personal use but also for others if they wanted to try out my setup. This is my daily driver used with a 15 inch Lepow portable monitor and bluetooth keyboard and mouse. This is mainly intended to be used as a PC/Laptop replacement connected to a monitor, keyboard and mouse and used as you would with any PC/Laptop. I run this on my Samsung Galaxy Fold 3.
 
-![My Samsung Galaxy Fold 3 - Dex Setup](desk.jpg)  
+![Screenshot_20240715_125655_TermuxX11](https://github.com/user-attachments/assets/df862692-a636-40e0-8ca7-0aaef4ac5761)
+
 
 &nbsp;
 
