@@ -132,14 +132,14 @@ LC_ALL=
 #export XMODIFIERS="@im=nimf"
 #nimf
 
-export GTK_IM_MODULE=fcitx5
+export GTK_IM_MODULE=fcitx5 
 export QT4_IM_MODULE="fcitx5"
 export QT_IM_MODULE=fcitx5
 export XMODIFIERS="@im=fcitx5"
-fcitx5
+fcitx5 & > /dev/null 2>&1
 
 # gpu 가속 설정
-export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export XDG_RUNTIME_DIR=/run/user/$(id -u) & > /dev/null 2>&1
 export MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.2' >> /home/$username/.profile
 
     sleep 1

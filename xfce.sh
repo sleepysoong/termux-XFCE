@@ -14,7 +14,6 @@ chmod +x $HOME/Desktop/firefox.desktop
 #Set aliases
 echo "
 alias ubuntu='proot-distro login ubuntu --user $username --shared-tmp'
-alias kali='proot-distro login BackTrack --user $username --shared-tmp'
 alias hud='GALLIUM_HUD=fps '
 alias ls='eza -lF --icons'
 alias cat='bat '
