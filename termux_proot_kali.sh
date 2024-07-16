@@ -100,7 +100,10 @@ sed -i '327s/termux/proot/' $PREFIX/var/lib/proot-distro/installed-rootfs/BackTr
 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/conky.tar.gz
 tar -xvzf conky.tar.gz
 rm -f conky.tar.gz
-mkdir $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.config
+
+if [ ! -d "$PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.config" ]; then
+  mkdir -p "$PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.config"
+fi
 mv .config/conky/ $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.config
 mv .config/neofetch/ $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.config
 
@@ -111,7 +114,10 @@ cat <<'EOF' > $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$user
 Xcursor.theme: dist-dark
 EOF
 
-mkdir $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.fonts/
+if [ ! -d "$PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.fonts" ]; then
+    mkdir -p "$PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.fonts/"
+fi
+
 cp .fonts/NotoColorEmoji-Regular.ttf $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.fonts/ 
 
 #Setup Hardware Acceleration

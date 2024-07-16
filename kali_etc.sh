@@ -19,18 +19,18 @@ finish() {
 
 trap finish EXIT
 
+# 실행파일이 만들어지지 않는 것만 작성할 것
+
 username="$1"
 
-echo -e "${GREEN}kali-linux proot 관련프로그램을 설치합니다(XFCE4, GPU가속기 등을 설치합니다)."
+echo -e "${GREEN}kali-linux proot 관련프로그램을 설치합니다(GPU가속기 등을 설치합니다)."
 
 install_base_packages(){
 	set -e
 	echo -e "${GREEN}apt update && upgrade.${WHITE}"
 	apt update -y && apt upgrade -y
 
-	sleep 1
-	echo -e "${GREEN}칼리리눅스 관련 프로그램을 설치합니다.${WHITE}"
-	apt install kali-linux-core kali-defaults kali-menu firefox-esr kali-linux-everything -y 
+
 
 	sleep 1
 	echo -e "${GREEN}기타 프로그램을 설치합니다.${WHITE}"
@@ -138,9 +138,9 @@ nimf
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
 export MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.2' >> /home/$username/.profile
 
-    #sleep 1
-	#echo -e "${GREEN}리브레오피스를 설치합니다.${WHITE}"
-	#apt install libreoffice libreoffice-help-ko -y  
+    sleep 1
+	echo -e "${GREEN}firefox-esr를 설치합니다.${WHITE}"
+	apt install firefox-esr -y  
 	
     sleep 1
 	apt autoremove
