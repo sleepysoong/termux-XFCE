@@ -29,7 +29,7 @@ Join the Discord for any questions, help, suggestions, etc. [https://discord.gg/
 
 &nbsp;
 
-![Screenshot_20240715_122525_TermuxX11](https://github.com/user-attachments/assets/d54a5da5-8b80-4baf-821a-76f97d693c40)
+![Screenshot_20240716_163344_TermuxX11](https://github.com/user-attachments/assets/f6e46172-03e0-43c2-936f-9b5a07a1c26e)
 
   
 # Use Case
