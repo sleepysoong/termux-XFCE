@@ -11,13 +11,18 @@ Please read the whole Readme for more information about this setup.
 
 # Install
 
-To install run this command in termux
+전체 프로그램 설치: 아래 명령어를 입력하세요
 
 ```
 curl -sL https://raw.githubusercontent.com/yanghoeg/Termux_XFCE/main/install.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
 &nbsp;
 
+칼리리눅스 추가 설치: 아래 명령어를 입력하세요
+```
+curl -sL https://raw.githubusercontent.com/yanghoeg/Termux_XFCE/main/install_kali.sh -o install.sh && chmod +x install.sh && ./install.sh
+```
+&nbsp;
 
 Join the Discord for any questions, help, suggestions, etc. [https://discord.gg/pNMVrZu5dm](https://discord.gg/pNMVrZu5dm)  
 위 디스코드는 코드 제작자의 디스코드 입니다.
