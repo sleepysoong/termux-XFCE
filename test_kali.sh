@@ -1,4 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
+export GREEN='\033[0;32m'
+export TURQ='\033[0;36m'
+export URED='\033[4;31m'
+export UYELLOW='\033[4;33m'
+export WHITE='\033[0;37m'
 
 username="yanghoeg"
 
