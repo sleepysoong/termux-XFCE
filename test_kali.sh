@@ -2,6 +2,7 @@
 
 username="yanghoeg"
 
+echo -e "${GREEN}Kali-linux를 설치하겠습니까? (y/n)${WHITE}"
 read yn
 	case $yn in 
 		y ) echo -e "${GREEN}Kali-linux를 설치합니다....${WHITE}"
@@ -9,6 +10,7 @@ read yn
             chmod +x *.sh
             ./termux_proot_kali.sh "$username"
             rm termux_proot_kali.sh
-
-		* ) echo -e "${GREEN}kali-linux를 설치하지 않습니다.${WHITE}";;
+            ;;
+		* ) echo -e "${GREEN}kali-linux를 설치하지 않습니다.${WHITE}"
+            ;;
 	esac
