@@ -24,5 +24,5 @@ varname="$1"
 
 proot-distro login BackTrack --shared-tmp -- env DISPLAY=:1.0 apt update
 proot-distro login BackTrack --shared-tmp -- env DISPLAY=:1.0 sudo apt install kali-linux-core kali-defaults kali-menu kali-linux-large -y
-cp $PREFIX/usr/var/lib/proot-distro/installed-rootfs/BackTrack/usr/share/applications/kali* $PREFIX/usr/share/applications
-sed -i "s/^Exec=\(.*\)$/Exec=proot-distro login BackTrack --user $varname --shared-tmp -- env DISPLAY=:1.0 \1/"   $PREFIX/usr/share/applications/kali*
+#cp $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/usr/share/applications/kali* $PREFIX/share/applications
+#sed -i "s/^Exec=\(.*\)$/Exec=proot-distro login BackTrack --user $varname --shared-tmp -- env DISPLAY=:1.0 \1/"   $PREFIX/share/applications/kali*
