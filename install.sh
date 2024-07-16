@@ -1,4 +1,9 @@
 #!/data/data/com.termux/files/usr/bin/bash
+export GREEN='\033[0;32m'
+export TURQ='\033[0;36m'
+export URED='\033[4;31m'
+export UYELLOW='\033[4;33m'
+export WHITE='\033[0;37m'
 
 # Unofficial Bash Strict Mode
 set -euo pipefail
@@ -62,7 +67,7 @@ chmod +x *.sh
 # Display a message 
 clear -x
 echo ""
-echo "Installing Termux-X11 APK" 
+echo -e ${GREEN} "Termux-X11 APK를 설치합니다.${WHITE}" 
 # Wait for a single character input 
 echo ""
 read -n 1 -s -r -p "아무키나 누르세요..."
@@ -73,7 +78,18 @@ termux-open $HOME/storage/downloads/app-arm64-v8a-debug.apk
 source $PREFIX/etc/bash.bashrc
 termux-reload-settings
 
+echo -e "${GREEN}Kali-linux를 설치합니다. 생성되는 ID는 기존에 지정한 ID와 동일합니다.${WHITE}"  
+echo -e "${UYELLOW}Kali-linux()를 설치하겠습니까?(y/n)${WHITE}"  
+
+read yn
+	case $yn in 
+		y ) echo -e "${GREEN}Kali-linux를 설치합니다....${WHITE}"
+			
+		* ) echo -e "${GREEN}kali-linux를 설치하지 않습니다.${WHITE}";;
+	esac
+
 clear -x
+
 echo ""
 echo "성공적으로 설치하였습니다."
 echo ""

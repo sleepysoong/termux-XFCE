@@ -88,4 +88,5 @@ chmod +x ./ubuntu_etc.sh
 cp ./ubuntu_etc.sh $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
 chmod +x $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
 proot-distro login ubuntu --user root --shared-tmp --no-sysvipc -- bash -c "./ubuntu_etc.sh $username"
-rm $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh
+sleep 1
+rm -f $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/root/ubuntu_etc.sh

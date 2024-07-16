@@ -1,5 +1,4 @@
 #!/data/data/com.termux/files/usr/bin/bash
-SCRIPT_VERSION="1.0"
 
 export GREEN='\033[0;32m'
 export TURQ='\033[0;36m'
@@ -49,6 +48,10 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
 	echo -e "${GREEN}unzip설치.${WHITE}"
 	pkg install -y unzip
 
+    sleep 1
+	echo -e "${GREEN}qt5-qttools설치.${WHITE}"
+	pkg install -y qt5-qttools
+    
     echo -e "${GREEN}tur-repo추가${WHITE}"
     pkg install -y tur-repo
     if ! grep -q "tur-multilib tur-hacking" ~/../usr/etc/apt/sources.list.d/tur.list; then
