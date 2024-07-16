@@ -60,7 +60,7 @@ pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 cp /usr/share/zoneinfo/$timezon
 #Setup Fancybash Proot
 cp .fancybash.sh $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username
 echo "source ~/.fancybash.sh" >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
-sed -i '327s/termux/proot/' $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.fancybash.sh
+sed -i '327s/termux/ubuntu/' $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.fancybash.sh
 
 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/conky.tar.gz
 tar -xvzf conky.tar.gz

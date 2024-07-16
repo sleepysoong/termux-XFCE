@@ -50,7 +50,8 @@ finish() {
 
 trap finish EXIT
 
-username="$1"
+tusername="$1"
+username="$2"
 
 pkgs_proot=('sudo' 'wget' 'jq' 'flameshot' 'conky-all' 'zenity')
 
@@ -96,10 +97,16 @@ timezone=$(getprop persist.sys.timezone)
 pd login BackTrack --shared-tmp -- env DISPLAY=:1.0 rm /etc/localtime
 pd login BackTrack --shared-tmp -- env DISPLAY=:1.0 cp /usr/share/zoneinfo/$timezone /etc/localtime
 
+#set aliase
+echo "
+alias kali='proot-distro login BackTrack --user $username --shared-tmp'
+" >> $PREFIX/etc/bash.bashrc
+
 #Setup Fancybash Proot
 cp .fancybash.sh $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username
 echo "source ~/.fancybash.sh" >> $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.bashrc
-sed -i '327s/termux/proot/' $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.fancybash.sh
+sed -i "326s/$tusername/$username/" $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.fancybash.sh
+sed -i '327s/termux/kali/' $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.fancybash.sh
 
 wget https://github.com/yanghoeg/Termux_XFCE/raw/main/conky.tar.gz
 tar -xvzf conky.tar.gz
@@ -110,6 +117,8 @@ if [ ! -d "$PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$usernam
 fi
 mv .config/conky/ $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.config
 mv .config/neofetch/ $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.config
+file="$PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.config/neofetch/config.conf"
+sed -i 's/ascii_distro="Ubuntu"/ascii_distro="Kali-linux"/' $file
 
 #Set theming from xfce to proot
 cp -r $PREFIX/share/icons/dist-dark $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/usr/share/icons/dist-dark

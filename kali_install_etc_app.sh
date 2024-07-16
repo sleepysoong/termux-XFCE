@@ -30,8 +30,6 @@ install_base_packages(){
 	echo -e "${GREEN}apt update && upgrade.${WHITE}"
 	apt update -y && apt upgrade -y
 
-
-
 	sleep 1
 	echo -e "${GREEN}기타 프로그램을 설치합니다.${WHITE}"
 	apt install dialog psmisc htop wget glmark2 -y 
