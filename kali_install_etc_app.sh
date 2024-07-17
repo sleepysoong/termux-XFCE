@@ -89,7 +89,7 @@ install_base_packages(){
 	#echo -e "${GREEN}nimf, nimf-libhangul 설치.${WHITE}"
     #apt install -y nimf nimf-libhangul 
     
-    apt install -y fcitx5 fcitx5-hangul 
+    apt install -y fcitx fcitx-hangul 
 
 	sleep 1
 	echo -e "${GREEN}fonts-noto-cjk 설치.${WHITE}"
@@ -105,7 +105,7 @@ install_base_packages(){
 
 	sleep 1
 	echo -e "${GREEN}fcitx5 편집기 등록.${WHITE}"
-	im-config -n fcitx5
+	im-config -n fcitx
 
 	echo -e '
 #한국어 설정
@@ -132,11 +132,11 @@ LC_ALL=
 #export XMODIFIERS="@im=nimf"
 #nimf
 
-export GTK_IM_MODULE=fcitx5 
-export QT4_IM_MODULE="fcitx5"
-export QT_IM_MODULE=fcitx5
-export XMODIFIERS="@im=fcitx5"
-fcitx5 & > /dev/null 2>&1
+export GTK_IM_MODULE=fcitx 
+export QT4_IM_MODULE="fcitx"
+export QT_IM_MODULE=fcitx
+export XMODIFIERS="@im=fcitx"
+fcitx & > /dev/null 2>&1
 
 # gpu 가속 설정
 export XDG_RUNTIME_DIR=/run/user/$(id -u) & > /dev/null 2>&1
