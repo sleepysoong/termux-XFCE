@@ -133,18 +133,11 @@ LANGUAGE=ko_KR.UTF-8
 LC_ALL=
 
 # 편집기 설정
-#export GTK_IM_MODULE=nimf
-#export QT4_IM_MODULE="nimf"
-#export QT_IM_MODULE=nimf
-#export XMODIFIERS="@im=nimf"
-#nimf
-
-# 편집기 설정
-export GTK_IM_MODULE=fcitx
-export QT4_IM_MODULE="fcitx"
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
-fcitx
+export GTK_IM_MODULE=nimf
+export QT4_IM_MODULE="nimf"
+export QT_IM_MODULE=nimf
+export XMODIFIERS="@im=nimf"
+nimf
 
 # gpu 가속 설정
 export XDG_RUNTIME_DIR=/run/user/$(id -u)

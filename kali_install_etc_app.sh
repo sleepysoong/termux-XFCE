@@ -132,11 +132,11 @@ LC_ALL=
 #export XMODIFIERS="@im=nimf"
 #nimf
 
-export GTK_IM_MODULE=fcitx 
-export QT4_IM_MODULE="fcitx"
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
-fcitx & > /dev/null 2>&1
+export GTK_IM_MODULE=fcitx5 
+export QT4_IM_MODULE="fcitx5"
+export QT_IM_MODULE=fcitx5
+export XMODIFIERS="@im=fcitx5"
+fcitx5 & > /dev/null 2>&1
 
 # gpu 가속 설정
 export XDG_RUNTIME_DIR=/run/user/$(id -u) & > /dev/null 2>&1
