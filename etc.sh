@@ -65,25 +65,13 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
 	pkg update -y && pkg upgrade -y
 
     sleep 1
-	echo -e "${GREEN}eza 설치.${WHITE}"
-	pkg install -y eza
-
-    sleep 1
 	echo -e "${GREEN}neofetch설치.${WHITE}"
 	pkg install -y neofetch
 
     sleep 1
-	echo -e "${GREEN} bat 설치.${WHITE}"
-	pkg install -y  bat
-    
-    sleep 1
 	echo -e "${GREEN}pavucontrol-qt 설치.${WHITE}"
 	pkg install -y pavucontrol-qt
 
-    sleep 1
-	echo -e "${GREEN}jq 설치.${WHITE}"
-	pkg install -y jq
- 
     sleep 1
 	echo -e "${GREEN}wmctrl 설치.${WHITE}"
 	pkg install -y wmctrl
@@ -100,6 +88,18 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
     echo -e "${GREEN}xorg-server-xvfb 설치${WHITE}"
     pkg install -y xorg-server-xvfb
 
+    sleep 1
+    echo -e "${GREEN}turmux-x11-nightly 설치 ${WHITE}"
+    pkg install -y termux-x11-nightly
+    
+    sleep 1
+    echo -e "${GREEN}한글 설치 ${WHITE}"
+    pkg install fcitx5 fcitx5-hangul libhangul libhangul-static fcitx5-configtool -y
+
+    sleep 1
+    echo -e "${GREEN}which 설치${WHITE}"
+    pkg install -y which
+
     echo -e "${GREEN}vulkan-tools 설치${WHITE}"
     sleep 1
 	pkg install -y vulkan-tools
@@ -112,18 +112,6 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
 	pkg install -y mesa-zink 
     sleep 1
     pkg install -y mesa-vulkan-icd-freedreno-dri3
-
-    sleep 1
-    echo -e "${GREEN}turmux-x11-nightly 설치 ${WHITE}"
-    pkg install -y termux-x11-nightly
-    
-    sleep 1
-    echo -e "${GREEN}한글 설치 ${WHITE}"
-    pkg install fcitx5-hangul libhangul libhangul-static fcitx5-configtool -y
-
-    sleep 1
-    echo -e "${GREEN}which 설치${WHITE}"
-    pkg install -y which
 
     sleep 1
     echo -e "${GREEN}Termux-widget 설치.${WHITE}"
@@ -195,5 +183,5 @@ termux_hangover_wine_install()
 }
 
 termux_base_setup
-termux_etc_install
+#termux_etc_install
 termux_hangover_wine_install
