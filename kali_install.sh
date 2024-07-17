@@ -78,6 +78,14 @@ echo "export DISPLAY=:1.0" >> $PREFIX/var/lib/proot-distro/installed-rootfs/Back
 #Set Sound
 echo "LD_PRELOAD=/system/lib64/libskcodec.so" >> $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.bashrc
 
+cat <<'EOF' > $PREFIX/bin/krun
+#!/data/data/com.termux/files/usr/bin/bash
+varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/*)
+pd login BackTrack --user $username --shared-tmp -- env DISPLAY=:1.0 $@
+
+EOF
+chmod +x $PREFIX/bin/krun
+
 #Set proot aliases
 echo "
 alias hud='GALLIUM_HUD=fps '
