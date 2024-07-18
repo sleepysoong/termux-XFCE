@@ -35,6 +35,9 @@ install_base_packages(){
 	sleep 1
 	apt install dialog psmisc htop wget glmark2 -y 
 	sleep 1
+	echo -e "${GREEN}python3 python3-pip 설치.${WHITE}"
+	apt install python3 python3-pip  -y  
+	sleep 1
 	echo -e "${GREEN}meson 설치.${WHITE}"
 	apt install meson  -y  
 	

@@ -49,6 +49,10 @@ alias ls='eza -lF --icons'
 alias ll='ls -alhF'
 alias shutdown='kill -9 -1'
 alias cat='bat '
+alias python=/usr/bin/python3
+alias python3=/usr/bin/python3
+alias pip=/usr/bin/pip
+alias pip3=/usr/bin/pip
 alias start='echo please run from termux, not ubuntu proot.'
 " >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
 
