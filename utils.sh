@@ -3,17 +3,17 @@
 varname="$1"
 
 cat <<'EOF' > $PREFIX/bin/prun
-#!/data/data/com.termux/files/usr/bin/bash
-varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/*)
-pd login ubuntu --user $varname --shared-tmp -- env DISPLAY=:1.0 $@
+#!/bin/bash
+varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/debian/home/*)
+pd login debian --user $varname --shared-tmp -- env DISPLAY=:1.0 $@
 
 EOF
 chmod +x $PREFIX/bin/prun
 
 cat <<'EOF' > $PREFIX/bin/zrun
-#!/data/data/com.termux/files/usr/bin/bash
-varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/*)
-pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@
+#!/bin/bash
+varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/debian/home/*)
+pd login debian --user $varname --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@
 
 EOF
 chmod +x $PREFIX/bin/zrun
@@ -43,8 +43,8 @@ action=$(zenity --list --title="Choose Action" --text="Select an action:" --radi
 if [[ -z $action ]]; then
   zenity --info --text="No action selected. Quitting..." --title="Operation Cancelled"
   exit 0
-fi
-
+fi 
+ 
 if [[ $action == "Copy .desktop file" ]]; then
   selected_file=$(zenity --file-selection --title="Select .desktop File" --file-filter="*.desktop" --filename="$PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/usr/share/applications")
 

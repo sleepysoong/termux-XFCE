@@ -57,7 +57,7 @@ alias pip3=/usr/bin/pip
 alias start='echo please run from termux, not ubuntu proot.'
 " >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
 
-souce $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
+source $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
 
 #Set proot timezone
 timezone=$(getprop persist.sys.timezone)

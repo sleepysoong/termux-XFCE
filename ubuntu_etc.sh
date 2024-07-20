@@ -33,7 +33,7 @@ install_base_packages(){
 	sleep 1
 	echo -e "${GREEN}기타 프로그램을 설치합니다.${WHITE}"
 	sleep 1
-	apt install dialog apt-utils psmisc htop wget glmark2 -y #software-properties-common mesa-utils dbus-x11 
+	apt install dialog apt-utils psmisc htop wget glmark2 -y #software-properties-common mesa-utils dbus-x11 libc6
 	sleep 1
 	echo -e "${GREEN}python3 python3-pip 설치.${WHITE}"
 	apt install python3 python3-pip  -y  
@@ -145,6 +145,8 @@ nimf
 # gpu 가속 설정
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
 export MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.2' >> /home/$username/.profile
+
+source /home/$username/.profile
 
     sleep 1
 	apt autoremove
