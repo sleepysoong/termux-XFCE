@@ -65,8 +65,8 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
 	pkg update -y && pkg upgrade -y
 
     sleep 1
-	echo -e "${GREEN}neofetch설치.${WHITE}"
-	pkg install -y neofetch
+	echo -e "${GREEN}glmark2, neofetch설치.${WHITE}"
+	pkg install neofetch glmark2 -y
 
     sleep 1
 	echo -e "${GREEN}pavucontrol-qt 설치.${WHITE}"
@@ -110,6 +110,7 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
     sleep 1
     echo -e "${GREEN}mesa-zink, mesa-vulkan-icd-freedreno-dri3 설치${WHITE}"
 	pkg install -y mesa-zink 
+
     sleep 1
     pkg install -y mesa-vulkan-icd-freedreno-dri3
 

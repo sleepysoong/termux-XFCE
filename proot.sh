@@ -17,7 +17,7 @@ trap finish EXIT
 
 username="$1"
 
-pkgs_proot=('sudo' 'wget' 'jq' 'flameshot' 'conky-all' 'zenity')
+pkgs_proot=('sudo' 'wget' 'jq' 'flameshot' 'conky-all' 'zenity' 'eza')
 
 #Install ubuntu proot
 pd install ubuntu
@@ -49,12 +49,15 @@ alias ls='eza -lF --icons'
 alias ll='ls -alhF'
 alias shutdown='kill -9 -1'
 alias cat='bat '
+
 alias python=/usr/bin/python3
 alias python3=/usr/bin/python3
 alias pip=/usr/bin/pip
 alias pip3=/usr/bin/pip
 alias start='echo please run from termux, not ubuntu proot.'
 " >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
+
+souce $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
 
 #Set proot timezone
 timezone=$(getprop persist.sys.timezone)

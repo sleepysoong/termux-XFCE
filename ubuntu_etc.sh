@@ -33,7 +33,7 @@ install_base_packages(){
 	sleep 1
 	echo -e "${GREEN}기타 프로그램을 설치합니다.${WHITE}"
 	sleep 1
-	apt install dialog psmisc htop wget glmark2 -y 
+	apt install dialog apt-utils psmisc htop wget glmark2 -y #software-properties-common mesa-utils dbus-x11 
 	sleep 1
 	echo -e "${GREEN}python3 python3-pip 설치.${WHITE}"
 	apt install python3 python3-pip  -y  
