@@ -62,7 +62,7 @@ chmod +x *.sh
 ./xfce.sh "$username"
 ./etc.sh
 ./proot.sh "$username"
-./utils.sh "$username"
+./utils.sh
 
 # Display a message 
 clear -x

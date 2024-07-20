@@ -1,7 +1,5 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
-varname="$1"
-
 cat <<'EOF' > $PREFIX/bin/prun
 #!/bin/bash
 varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/debian/home/*)
