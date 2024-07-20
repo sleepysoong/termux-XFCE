@@ -2,16 +2,16 @@
 
 cat <<'EOF' > $PREFIX/bin/prun
 #!/bin/bash
-varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/debian/home/*)
-pd login debian --user $varname --shared-tmp -- env DISPLAY=:1.0 $@
+varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/*)
+pd login ubuntu --user $varname --shared-tmp -- env DISPLAY=:1.0 $@
 
 EOF
 chmod +x $PREFIX/bin/prun
 
 cat <<'EOF' > $PREFIX/bin/zrun
 #!/bin/bash
-varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/debian/home/*)
-pd login debian --user $varname --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@
+varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/*)
+pd login ubuntu --user $varname --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@
 
 EOF
 chmod +x $PREFIX/bin/zrun
