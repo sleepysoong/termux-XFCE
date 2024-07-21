@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 cat <<'EOF' > $PREFIX/bin/prun
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/*)
 pd login ubuntu --user $varname --shared-tmp -- env DISPLAY=:1.0 $@
 
@@ -9,7 +9,7 @@ EOF
 chmod +x $PREFIX/bin/prun
 
 cat <<'EOF' > $PREFIX/bin/zrun
-#!/bin/bash
+#!/data/data/com.termux/files/usr/bin/bash
 varname=$(basename $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/*)
 pd login ubuntu --user $varname --shared-tmp -- env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform $@
 
