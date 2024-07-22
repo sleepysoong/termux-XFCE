@@ -35,8 +35,17 @@ install_base_packages(){
 	sleep 1
 	apt install dialog apt-utils psmisc htop wget glmark2 -y #software-properties-common mesa-utils dbus-x11 libc6
 	sleep 1
-	echo -e "${GREEN}python3 python3-pip 설치.${WHITE}"
-	apt install python3 python3-pip  -y  
+	echo -e "${GREEN}python3 설치.${WHITE}"
+	apt install python3  -y  
+	
+	sleep 1
+	echo -e "${GREEN}python3-pip 설치.${WHITE}"
+	apt install python3-pip  -y 
+
+	sleep 1
+	echo -e "${GREEN}gh 설치.${WHITE}"
+	apt install gh  -y  
+
 	sleep 1
 	echo -e "${GREEN}meson 설치.${WHITE}"
 	apt install meson  -y  
