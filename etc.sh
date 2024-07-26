@@ -173,13 +173,13 @@ termux_hangover_wine_install()
     echo -e "${GREEN}의존프로그램 설치${WHITE}"
 	pkg install -y cabextract clang 7zip freetype gnutls libandroid-shmem-static libx11 xorgproto mesa-demos libdrm libpixman libxfixes libjpeg-turbo xtrans libxxf86vm xorg-xrandr xorg-font-util xorg-util-macros libxfont2 libxkbfile libpciaccess xcb-util-renderutil xcb-util-image xcb-util-keysyms xcb-util-wm xorg-xkbcomp xkeyboard-config libxdamage libxinerama libxshmfence
 
-    sleep 1
-    echo -e "${GREEN}hangover-wine 설치${WHITE}"
-    pkg install -y hangover-wine
+    #sleep 1
+    #echo -e "${GREEN}hangover-wine 설치${WHITE}"
+    #pkg install -y hangover-wine
 
-    sleep 1
-    echo -e "${GREEN}winetricks 설치${WHITE}"
-    pkg install -y winetricks
+    #sleep 1
+    #echo -e "${GREEN}winetricks 설치${WHITE}"
+    #pkg install -y winetricks
 
 }
 
