@@ -44,7 +44,7 @@ install_base_packages(){
 
 	sleep 1
 	echo -e "${GREEN}gh 설치.${WHITE}"
-	apt install gh  -y  
+	apt install gh -y  
 
 	sleep 1
 	echo -e "${GREEN}meson 설치.${WHITE}"
@@ -157,10 +157,10 @@ export MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform MESA_
 
 
     sleep 1
-	apt autoremove
+	apt autoremove -y
 
     sleep 1
-	apt autoclean
+	apt autoclean -y
 	
 	sleep 1
 	echo -e 'LANG=ko_KR.UTF-8
