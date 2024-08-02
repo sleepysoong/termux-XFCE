@@ -20,10 +20,8 @@ alias cat='bat '
 " >> $PREFIX/etc/bash.bashrc
 
 #Download Wallpaper
-wget https://raw.githubusercontent.com/yanghoeg/Termux_XFCE/main/peakpx.jpg
 wget https://raw.githubusercontent.com/yanghoeg/Termux_XFCE/main/dark_waves.png
 wget https://raw.githubusercontent.com/yanghoeg/Termux_XFCE/main/TheSolarSystem.jpg
-mv peakpx.jpg $PREFIX/share/backgrounds/xfce/
 mv dark_waves.png $PREFIX/share/backgrounds/xfce/
 mv TheSolarSystem.jpg $PREFIX/share/backgrounds/xfce/
 
