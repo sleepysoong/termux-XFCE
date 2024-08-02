@@ -33,26 +33,26 @@ install_base_packages(){
 	sleep 1
 	echo -e "${GREEN}기타 프로그램을 설치합니다.${WHITE}"
 	sleep 1
-	apt install dialog apt-utils psmisc htop wget glmark2 -y #software-properties-common mesa-utils dbus-x11 libc6
+	apt install aptitude dialog apt-utils psmisc htop wget glmark2 -y #software-properties-common mesa-utils dbus-x11 libc6
 	sleep 1
 	echo -e "${GREEN}python3 설치.${WHITE}"
-	apt install python3  -y  
+	aptitude install python3  -y  
 	
 	sleep 1
 	echo -e "${GREEN}python3-pip 설치.${WHITE}"
-	apt install python3-pip  -y 
+	aptitude install python3-pip  -y 
 
 	sleep 1
 	echo -e "${GREEN}gh 설치.${WHITE}"
-	apt install gh -y  
+	aptitude install gh -y  
 
 	sleep 1
 	echo -e "${GREEN}meson 설치.${WHITE}"
-	apt install meson  -y  
+	aptitude install meson  -y  
 	
 	sleep 1
 	echo -e "${GREEN}ninja-build 설치.${WHITE}"
-	apt install ninja-build  -y  
+	aptitude install ninja-build  -y  
 
 	sleep 1
 	echo -e "${GREEN}sudo 설치.${WHITE}"
@@ -64,47 +64,47 @@ install_base_packages(){
 
 	sleep 1
 	echo -e "${GREEN}nano 설치.${WHITE}"
-	apt install nano  -y 
+	aptitude install nano  -y 
 
 	sleep 1
 	echo -e "${GREEN}winbind 설치.${WHITE}"
-	apt install winbind -y  
+	aptitude install winbind -y  
 
 	sleep 1
 	echo -e "${GREEN}onboard 설치.${WHITE}"
-	apt install onboard  -y  
+	aptitude install onboard  -y  
 
 	sleep 1
 	echo -e "${GREEN}x11-apps 설치.${WHITE}"
-	apt install x11-apps -y  
+	aptitude install x11-apps -y  
 
 	sleep 1
 	echo -e "${GREEN}neofetch 설치.${WHITE}"
-	apt install neofetch -y  
+	aptitude install neofetch -y  
 
 	sleep 1
 	echo -e "${GREEN}aptitude 설치.${WHITE}"
-	apt install aptitude -y  
+	aptitude install aptitude -y  
 
 	sleep 1
 	echo -e "${GREEN}language-pack-ko 설치.${WHITE}"
-	apt install language-pack-ko  -y  
+	aptitude install language-pack-ko  -y  
 
 	sleep 1
 	echo -e "${GREEN}language-pack-gnome-ko-base 설치.${WHITE}"
-	apt install language-pack-gnome-ko-base -y  
+	aptitude install language-pack-gnome-ko-base -y  
 
 	sleep 1
 	echo -e "${GREEN}locales 설치.${WHITE}"
-	apt install locales -y  
+	aptitude install locales -y  
 
     sleep 1
 	echo -e "${GREEN}나눔fonts 전체설치.${WHITE}"
-    apt install -y fonts-nanum* 
+    aptitude install -y fonts-nanum* 
     
 	sleep 1
 	echo -e "${GREEN}im-config 설치.${WHITE}"
-    apt install -y im-config 
+    aptitude install -y im-config 
 
     sleep 1
 	echo -e "${GREEN}하모니카 repo 추가.${WHITE}"
@@ -112,15 +112,15 @@ install_base_packages(){
 	
 	sleep 1
 	echo -e "${GREEN}nimf, nimf-libhangul 설치.${WHITE}"
-    apt install -y nimf nimf-libhangul 
+    aptitude install -y nimf nimf-libhangul 
     
 	sleep 1
 	echo -e "${GREEN}fonts-noto-cjk 설치.${WHITE}"
-    apt install -y fonts-noto-cjk 
+    aptitude install -y fonts-noto-cjk 
 
 	sleep 1
 	echo -e "${GREEN}fonts-roboto 설치.${WHITE}"
-    apt install -y fonts-roboto
+    aptitude install -y fonts-roboto
 
 	sleep 1
 	echo -e "${GREEN}nimf 편집기 등록.${WHITE}"
