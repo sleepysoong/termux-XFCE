@@ -100,7 +100,7 @@ install_base_packages(){
 
     sleep 1
 	echo -e "${GREEN}나눔fonts 전체설치.${WHITE}"
-    aptitude install -y fonts-nanum* 
+    apt install -y fonts-nanum* 
     
 	sleep 1
 	echo -e "${GREEN}im-config 설치.${WHITE}"
