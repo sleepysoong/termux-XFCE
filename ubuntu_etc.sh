@@ -82,9 +82,6 @@ install_base_packages(){
 	echo -e "${GREEN}neofetch 설치.${WHITE}"
 	aptitude install neofetch -y  
 
-	sleep 1
-	echo -e "${GREEN}aptitude 설치.${WHITE}"
-	aptitude install aptitude -y  
 
 	sleep 1
 	echo -e "${GREEN}language-pack-ko 설치.${WHITE}"

@@ -128,16 +128,16 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
     mkdir ~/.shortcuts
     
 echo -e '#!/data/data/com.termux/files/usr/bin/bash
-killall -9 termux-x11 Xwayland pulseaudio 
+killall -9 termux-x11 Xwayland pulseaudio virgl_test_server_android virgl_test_server
+
 termux-wake-lock; termux-toast "Starting X11"
+am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity
 
 XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 & > /dev/null 2>&1
-sleep 1
 
-am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity
-sleep 1
+sleep 2
 
-env DISPLAY=:1.0 MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=kgsl TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1' > ~/.shortcuts/startXFCE
+env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=kgsl dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1' > ~/.shortcuts/startXFCE
 
     chmod +x ~/.shortcuts/startXFCE
 
