@@ -35,6 +35,20 @@ alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 
 echo '
 
+export LANG=ko_KR.UTF-8
+export LC_MONETARY="ko_KR.UTF-8"
+export LC_PAPER="ko_KR.UTF-8"
+export LC_NAME="ko_KR.UTF-8"
+export LC_ADDRESS="ko_KR.UTF-8"
+export LC_TELEPHONE="ko_KR.UTF-8"
+export LC_MEASUREMENT="ko_KR.UTF-8"
+export LC_IDENTIFICATION="ko_KR.UTF-8"
+export LC_ALL=
+export XDG_CONFIG_HOME=/data/data/com.termux/files/home/.config
+export XMODIFIERS=@im=fcitx5
+export GTK_IM_MODULE=fcitx5
+export QT_IM_MODULE=fcitx5"
+
 LD_PRELOAD=/system/lib64/libskcodec.so
 pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
 pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1' >> $PREFIX/etc/bash.bashrc
@@ -66,14 +80,6 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
 	pkg install -y pavucontrol-qt
 
     sleep 1
-	echo -e "${GREEN}wmctrl 설치.${WHITE}"
-	pkg install -y wmctrl
-
-    sleep 1
-    echo -e "${GREEN}turmux-x11-nightly 설치 ${WHITE}"
-    pkg install -y termux-x11-nightly
-    
-    sleep 1
     echo -e "${GREEN}xorg-server-xvfb 설치${WHITE}"
     pkg install -y xorg-server-xvfb
 
@@ -99,23 +105,16 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
 	pkg install -y mesa-demos
 
     sleep 1
-    echo -e "${GREEN}clvk 설치${WHITE}"
-	pkg install -y clvk
-
-    sleep 1
-    echo -e "${GREEN}clinfo 설치${WHITE}"
-	pkg install -y clinfo
-
-    sleep 1
-    echo -e "${GREEN}vulkan-tools 설치${WHITE}"
-	pkg install -y vulkan-tools
-    
-    sleep 1
-	pkg install -y vulkan-loader-android
-
-    sleep 1
     echo -e "${GREEN}mesa-vulkan-icd-freedreno-dri3 설치${WHITE}"
     pkg install -y mesa-vulkan-icd-freedreno-dri3
+
+    sleep 1
+    echo -e "${GREEN}mesa-vulkan-icd-wrapper 설치${WHITE}"
+    echo -e "출처: https://github.com/xMeM/termux-packages/actions/runs/11801252552/artifacts/2177301700"
+
+    wget https://github.com/yanghoeg/Termux_XFCE/raw/main/mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
+    apt install -y ./mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
+    rm -f ./mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
 
     sleep 1
     echo -e "${GREEN}Termux-widget 설치.${WHITE}"
@@ -129,7 +128,7 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
     mkdir ~/.shortcuts
     
 echo -e '#!/data/data/com.termux/files/usr/bin/bash
-killall -9 termux-x11 Xwayland pulseaudio virgl_test_server_android virgl_test_server
+killall -9 termux-x11 Xwayland pulseaudio 
 termux-wake-lock; termux-toast "Starting X11"
 
 XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 & > /dev/null 2>&1
@@ -138,8 +137,7 @@ sleep 1
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity
 sleep 1
 
-MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.2 virgl_test_server_android --angle-gl & > /dev/null 2>&1
-env DISPLAY=:1.0 dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1' > ~/.shortcuts/startXFCE
+env DISPLAY=:1.0 MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=kgsl TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1' > ~/.shortcuts/startXFCE
 
     chmod +x ~/.shortcuts/startXFCE
 
@@ -173,6 +171,41 @@ termux_etc_install(){
 	echo -e "${GREEN}glmark2, neofetch설치.${WHITE}"
 	pkg install neofetch glmark2 -y
 
+    sleep 1
+    echo -e "${GREEN}clvk 설치${WHITE}"
+	pkg install -y clvk
+
+    sleep 1
+    echo -e "${GREEN}clinfo 설치${WHITE}"
+	pkg install -y clinfo
+
+    sleep 1
+    echo -e "${GREEN}gtkmm4 설치${WHITE}"
+	pkg install -y gtkmm4
+
+    sleep 1
+    echo -e "${GREEN}libsigc++-3.0 설치${WHITE}"
+	pkg install -y libsigc++-3.0
+
+    sleep 1
+    echo -e "${GREEN} libcairomm-1.16 설치${WHITE}"
+	pkg install -y libcairomm-1.16
+
+    sleep 1
+    echo -e "${GREEN} libglibmm-2.68 설치${WHITE}"
+	pkg install -y libglibmm-2.68
+
+    sleep 1
+    echo -e "${GREEN} libpangomm-2.48 설치${WHITE}"
+	pkg install -y libpangomm-2.48
+
+    sleep 1
+    echo -e "${GREEN} swig 설치${WHITE}"
+	pkg install -y swig
+
+    sleep 1
+    echo -e "${GREEN} libpeas 설치${WHITE}"
+	pkg install -y libpeas
 }
 
 termux_hangover_wine_install()

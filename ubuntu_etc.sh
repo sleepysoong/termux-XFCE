@@ -153,7 +153,7 @@ nimf
 
 # gpu 가속 설정
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
-export MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.2' >> /home/$username/.profile
+export MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=kgsl TU_DEBUG=noconform MESA_GL_VERSION_OVERRIDE=4.6COMPAT MESA_GLES_VERSION_OVERRIDE=3.2' >> /home/$username/.profile
 
 
     sleep 1
