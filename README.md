@@ -3,12 +3,6 @@
 https://github.com/phoenixbyrd/Termux_XFCE/tree/main의 debian proot에서 ubuntu proot로 변경하였습니다.
 이외 fcitx5-hangul 등의 설치를 추가하였습니다.
 
-Sets up a termux XFCE desktop and a ubuntu proot install. This setup uses Termux-X11, the termux-x11 server will be installed and you will be prompted to allow termux to install the Android APK.
-
-You only need to pick your username and follow the prompts. This will take roughly 4GB of storage space. Please note, this can be a lengthy process. Keep in mind that as you install applications, they will consume more storage space. 
-
-Please read the whole Readme for more information about this setup.  
-
 # Install
 
 전체 프로그램 설치: 아래 명령어를 입력하세요
@@ -32,12 +26,6 @@ Join the Discord for any questions, help, suggestions, etc. [https://discord.gg/
 ![Screenshot_20240716_163344_TermuxX11](https://github.com/user-attachments/assets/f6e46172-03e0-43c2-936f-9b5a07a1c26e)
 
   
-# Use Case
-  
-This is is how I personally use Termux on my Galaxy Fold 3, script was created mainly for personal use but also for others if they wanted to try out my setup. This is my daily driver used with a 15 inch Lepow portable monitor and bluetooth keyboard and mouse. This is mainly intended to be used as a PC/Laptop replacement connected to a monitor, keyboard and mouse and used as you would with any PC/Laptop. I run this on my Samsung Galaxy Fold 3.
-
-![Screenshot_20240715_125655_TermuxX11](https://github.com/user-attachments/assets/df862692-a636-40e0-8ca7-0aaef4ac5761)
-
 
 &nbsp;
 
@@ -61,18 +49,16 @@ Here are some aliases prepared to make launching things just a little easier.
 
 Termux XFCE:
 
-zrun - Launch apps in ubuntu proot with hardware acceleration
+zink - Launch apps in ubuntu proot with hardware acceleration
 
-zrunhud - Same thing but with fps hud
-
-hud - Display fps hud for games in Termux
+kgsl - Launch apps in ubuntu proot with hardware acceleration
 
 ubuntu proot:
 
 zink - Launch apps with hardware accleration
 
-hud - Display fps hud
-    
+kgsl - Launch apps in ubuntu proot with hardware acceleration
+   
 To enter proot use the command ```ubuntu```, from there you can install aditional software with apt and use cp2menu in termux to copy the menu items over to termux xfce menu. 
 
 Nala has been chosen as a front end in ubuntu proot. As it is currently setup, you do not need to issue sudo prior to running apt. This allows for you to just run apt update, apt upgrade, etc without also using sudo. This is setup similar in Termux as well and works just the same.
