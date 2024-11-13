@@ -15,19 +15,16 @@ termux_base_setup()
 {
     set -e
     sleep 1
-    echo -e "${GREEN}termux 업데이트 && 업그레이드.${WHITE}"
+    echo -e "${GREEN}termux 업데이트 && 업그레이드${WHITE}"
 	pkg update -y && pkg upgrade -y
     sleep 1
-    echo -e "${GREEN}termux 외부앱 허용, 진동-> 무음으로 변경.${WHITE}"
+    #echo -e "${GREEN}termux 외부앱 허용, 진동-> 무음으로 변경.${WHITE}"
     # 기본세팅 외부앱 사용가능
     #sleep 1
     #sed -i 's/# allow-external-apps = true/allow-external-apps = true/g' /data/data/com.termux/files/home/.termux/termux.properties
-    # 진동:무음
+    echo -e "${GREEN}진동-> 무음으로 변경.${WHITE}"
     sleep 1
     sed -i 's/# bell-character = ignore/bell-character = ignore/g' /data/data/com.termux/files/home/.termux/termux.properties
-
-    sleep 1
-    echo -e "${GREEN}사운드 설정.${WHITE}"
 
     sleep 1
     echo -e "${GREEN} alias 설정.${WHITE}"
@@ -47,11 +44,7 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
     sleep 1
 	echo -e "${GREEN}unzip설치.${WHITE}"
 	pkg install -y unzip
-
-    sleep 1
-	echo -e "${GREEN}qt5-qttools설치.${WHITE}"
-	pkg install -y qt5-qttools
-    
+  
     echo -e "${GREEN}tur-repo추가${WHITE}"
     pkg install -y tur-repo
     if ! grep -q "tur-multilib tur-hacking" ~/../usr/etc/apt/sources.list.d/tur.list; then
@@ -65,8 +58,8 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
 	pkg update -y && pkg upgrade -y
 
     sleep 1
-	echo -e "${GREEN}glmark2, neofetch설치.${WHITE}"
-	pkg install neofetch glmark2 -y
+	echo -e "${GREEN}qt6 설치.${WHITE}"
+	pkg install -y qt6*
 
     sleep 1
 	echo -e "${GREEN}pavucontrol-qt 설치.${WHITE}"
@@ -76,10 +69,6 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
 	echo -e "${GREEN}wmctrl 설치.${WHITE}"
 	pkg install -y wmctrl
 
-    sleep 1
-	echo -e "${GREEN}netcat-openbsd 설치.${WHITE}"
-	pkg install -y netcat-openbsd
-  
     sleep 1
     echo -e "${GREEN}turmux-x11-nightly 설치 ${WHITE}"
     pkg install -y termux-x11-nightly
@@ -93,25 +82,39 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
     pkg install -y termux-x11-nightly
     
     sleep 1
+    echo -e "${GREEN}webp-pixbuf-loader 설치 ${WHITE}"
+    pkg install -y webp-pixbuf-loader
+
+    sleep 1
     echo -e "${GREEN}한글 설치 ${WHITE}"
-    pkg install fcitx5 fcitx5-hangul libhangul libhangul-static fcitx5-configtool -y
+    pkg install fcitx5* -y
+    pkg install libhangul libhangul-static -y
 
     sleep 1
-    echo -e "${GREEN}which 설치${WHITE}"
-    pkg install -y which
+    echo -e "${GREEN}xfce4 나머지 설치${WHITE}"
+	pkg install -y xfce4*
 
+    sleep 1
+    echo -e "${GREEN}mesa-demos 설치${WHITE}"
+	pkg install -y mesa-demos
+
+    sleep 1
+    echo -e "${GREEN}clvk 설치${WHITE}"
+	pkg install -y clvk
+
+    sleep 1
+    echo -e "${GREEN}clinfo 설치${WHITE}"
+	pkg install -y clinfo
+
+    sleep 1
     echo -e "${GREEN}vulkan-tools 설치${WHITE}"
-    sleep 1
 	pkg install -y vulkan-tools
     
     sleep 1
 	pkg install -y vulkan-loader-android
 
     sleep 1
-    echo -e "${GREEN}mesa-zink, mesa-vulkan-icd-freedreno-dri3 설치${WHITE}"
-	pkg install -y mesa-zink 
-
-    sleep 1
+    echo -e "${GREEN}mesa-vulkan-icd-freedreno-dri3 설치${WHITE}"
     pkg install -y mesa-vulkan-icd-freedreno-dri3
 
     sleep 1
@@ -157,6 +160,19 @@ termux_etc_install(){
     sleep 1
     echo -e "${GREEN}gimp 설치 ${WHITE}"
     pkg install -y gimp 
+
+    sleep 1
+    echo -e "${GREEN}vlc-qt 설치 ${WHITE}"
+    pkg install -y vlc-qt
+
+    sleep 1
+    echo -e "${GREEN}which 설치${WHITE}"
+    pkg install -y which
+
+    sleep 1
+	echo -e "${GREEN}glmark2, neofetch설치.${WHITE}"
+	pkg install neofetch glmark2 -y
+
 }
 
 termux_hangover_wine_install()
@@ -184,5 +200,5 @@ termux_hangover_wine_install()
 }
 
 termux_base_setup
-#termux_etc_install
-termux_hangover_wine_install
+termux_etc_install
+#termux_hangover_wine_install
