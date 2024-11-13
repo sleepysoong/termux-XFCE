@@ -96,80 +96,17 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
     pkg install fcitx5* -y
     pkg install libhangul libhangul-static -y
 
-    sleep 1
-    echo -e "${GREEN}xfce4 나머지 설치${WHITE}"
-	pkg install -y xfce4*
+    #sleep 1
+    #echo -e "${GREEN}xfce4 나머지 설치${WHITE}"
+	#pkg install -y xfce4*
 
     sleep 1
-    echo -e "${GREEN}mesa-demos 설치${WHITE}"
+    echo -e "${GREEN}mesa 설치${WHITE}"
 	pkg install -y mesa-demos
 
     sleep 1
     echo -e "${GREEN}mesa-vulkan-icd-freedreno-dri3 설치${WHITE}"
     pkg install -y mesa-vulkan-icd-freedreno-dri3
-
-    sleep 1
-    echo -e "${GREEN}mesa-vulkan-icd-wrapper 설치${WHITE}"
-    echo -e "출처: https://github.com/xMeM/termux-packages/actions/runs/11801252552/artifacts/2177301700"
-
-    wget https://github.com/yanghoeg/Termux_XFCE/raw/main/mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
-    apt install -y ./mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
-    rm -f ./mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
-
-    sleep 1
-    echo -e "${GREEN}Termux-widget 설치.${WHITE}"
-    wget $TERMUX_WIDGET_LINK -O termux-widget_v0.13.0+github-debug.apk
-	termux-open termux-widget_v0.13.0+github-debug.apk
-
-	echo -e "${GREEN}termux widget 설치파일 삭제.${WHITE}"
-    rm termux-widget*.apk
-
-    echo -e "${GREEN}shortcuts 생성.${WHITE}"
-    mkdir ~/.shortcuts
-    
-echo -e '#!/data/data/com.termux/files/usr/bin/bash
-killall -9 termux-x11 Xwayland pulseaudio virgl_test_server_android virgl_test_server
-
-termux-wake-lock; termux-toast "Starting X11"
-am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity
-
-XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 & > /dev/null 2>&1
-
-sleep 2
-
-env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=kgsl dbus-launch --exit-with-session xfce4-session & > /dev/null 2>&1' > ~/.shortcuts/startXFCE
-
-    chmod +x ~/.shortcuts/startXFCE
-
-    sleep 1
-    echo "$HOME/.shortcuts/startXFCE" > $PREFIX/bin/startXFCE
-    chmod +x $PREFIX/bin/startXFCE
-}
-
-termux_etc_install(){
-    sleep 1
-    echo -e "${GREEN}firefox 설치 ${WHITE}"
-    pkg install -y firefox 
-
-    sleep 1
-    echo -e "${GREEN}chromium 설치 ${WHITE}"
-    pkg install -y chromium 
-
-    sleep 1
-    echo -e "${GREEN}gimp 설치 ${WHITE}"
-    pkg install -y gimp 
-
-    sleep 1
-    echo -e "${GREEN}vlc-qt 설치 ${WHITE}"
-    pkg install -y vlc-qt
-
-    sleep 1
-    echo -e "${GREEN}which 설치${WHITE}"
-    pkg install -y which
-
-    sleep 1
-	echo -e "${GREEN}glmark2, neofetch설치.${WHITE}"
-	pkg install neofetch glmark2 -y
 
     sleep 1
     echo -e "${GREEN}clvk 설치${WHITE}"
@@ -206,6 +143,71 @@ termux_etc_install(){
     sleep 1
     echo -e "${GREEN} libpeas 설치${WHITE}"
 	pkg install -y libpeas
+
+    sleep 1
+    echo -e "${GREEN}mesa-vulkan-icd-wrapper 설치${WHITE}"
+    echo -e "출처: https://github.com/xMeM/termux-packages/actions/runs/11801252552/artifacts/2177301700"
+
+    wget https://github.com/yanghoeg/Termux_XFCE/raw/main/mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
+    apt install -y ./mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
+    rm -f ./mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
+
+    sleep 1
+    echo -e "${GREEN}Termux-widget 설치.${WHITE}"
+    wget $TERMUX_WIDGET_LINK -O termux-widget_v0.13.0+github-debug.apk
+	termux-open termux-widget_v0.13.0+github-debug.apk
+
+	echo -e "${GREEN}termux widget 설치파일 삭제.${WHITE}"
+    rm termux-widget*.apk
+
+    echo -e "${GREEN}shortcuts 생성.${WHITE}"
+    mkdir ~/.shortcuts
+    
+echo -e '#!/data/data/com.termux/files/usr/bin/bash
+killall -9 termux-x11 Xwayland pulseaudio virgl_test_server_android virgl_test_server
+
+termux-wake-lock; XDG_RUNTIME_DIR=${TMPDIR} termux-x11 :1.0 & 
+sleep 1
+
+am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity 
+sleep 1
+
+#MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform
+
+env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=kgsl TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session &' > ~/.shortcuts/startXFCE
+
+    chmod +x ~/.shortcuts/startXFCE
+
+    sleep 1
+    echo "$HOME/.shortcuts/startXFCE" > $PREFIX/bin/startXFCE
+    chmod +x $PREFIX/bin/startXFCE
+}
+
+termux_etc_install(){
+    sleep 1
+    echo -e "${GREEN}firefox 설치 ${WHITE}"
+    pkg install -y firefox 
+
+    sleep 1
+    echo -e "${GREEN}chromium 설치 ${WHITE}"
+    pkg install -y chromium 
+
+    sleep 1
+    echo -e "${GREEN}gimp 설치 ${WHITE}"
+    pkg install -y gimp 
+
+    sleep 1
+    echo -e "${GREEN}vlc-qt 설치 ${WHITE}"
+    pkg install -y vlc-qt
+
+    sleep 1
+    echo -e "${GREEN}which 설치${WHITE}"
+    pkg install -y which
+
+    sleep 1
+	echo -e "${GREEN}glmark2, neofetch vkmark 설치.${WHITE}"
+	pkg install neofetch glmark2 vkmark -y
+
 }
 
 termux_hangover_wine_install()
