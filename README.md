@@ -3,6 +3,13 @@
 https://github.com/phoenixbyrd/Termux_XFCE/tree/main의 debian proot에서 ubuntu proot로 변경하였습니다.
 이외 fcitx5-hangul 등의 설치를 추가하였습니다.
 
+mesa-vulkan-icd-wrapper라는 gpu가속 관련 파일을 직접추가했습니다.
+출처: https://github.com/xMeM/termux-packages/actions/runs/11801252552/artifacts/2177301700
+
+artifacts로 올려진 파일은 wget으로 다운받을 수 없어 불가피하게 파일을 직접추가 했습니다.
+문제가 된다면 삭제하겠습니다.
+
+
 # Install
 
 전체 프로그램 설치: 아래 명령어를 입력하세요
