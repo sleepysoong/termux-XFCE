@@ -101,7 +101,7 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
 	#pkg install -y xfce4*
 
     sleep 1
-    echo -e "${GREEN}mesa 설치${WHITE}"
+    echo -e "${GREEN}mesa-demos 설치${WHITE}"
 	pkg install -y mesa-demos
 
     sleep 1
@@ -144,13 +144,13 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
     echo -e "${GREEN} libpeas 설치${WHITE}"
 	pkg install -y libpeas
 
-    sleep 1
-    echo -e "${GREEN}mesa-vulkan-icd-wrapper 설치${WHITE}"
-    echo -e "출처: https://github.com/xMeM/termux-packages/actions/runs/11801252552/artifacts/2177301700"
+    #sleep 1
+    #echo -e "${GREEN}mesa-vulkan-icd-wrapper 설치${WHITE}"
+    #echo -e "출처: https://github.com/xMeM/termux-packages/actions/runs/11801252552/artifacts/2177301700"
 
-    wget https://github.com/yanghoeg/Termux_XFCE/raw/main/mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
-    apt install -y ./mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
-    rm -f ./mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
+    #wget https://github.com/yanghoeg/Termux_XFCE/raw/main/mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
+    #apt install -y ./mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
+    #rm -f ./mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
 
     sleep 1
     echo -e "${GREEN}Termux-widget 설치.${WHITE}"
