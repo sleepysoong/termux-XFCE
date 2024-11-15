@@ -26,12 +26,12 @@ mv dark_waves.png $PREFIX/share/backgrounds/xfce/
 mv TheSolarSystem.jpg $PREFIX/share/backgrounds/xfce/
 
 #Install WhiteSur-Dark Theme
-wget https://github.com/vinceliuice/WhiteSur-gtk-theme/archive/refs/tags/2024-09-02.zip
-unzip 2024-09-02.zip
-tar -xf WhiteSur-gtk-theme-2024-05-01/release/WhiteSur-Dark.tar.xz
+wget https://github.com/vinceliuice/WhiteSur-gtk-theme/archive/refs/tags/2024.09.02.zip
+unzip 2024.09.02.zip
+tar -xf WhiteSur-gtk-theme-2024.09.02/release/WhiteSur-Dark.tar.xz
 mv WhiteSur-Dark/ $PREFIX/share/themes/
 rm -rf WhiteSur*
-rm 2024-09-02.zip
+rm 2024.09.02.zip
 
 #Install Fluent Cursor Icon Theme
 wget https://github.com/vinceliuice/Fluent-icon-theme/archive/refs/tags/2024-02-25.zip
