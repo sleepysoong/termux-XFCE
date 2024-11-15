@@ -30,7 +30,7 @@ termux_base_setup()
     echo -e "${GREEN} alias 설정.${WHITE}"
     echo "
 alias ll='ls -alhF'
-alias zink='GALLIUM_DRIVER=zink '
+alias zink='MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform '
 alias shutdown='kill -9 -1'" >> $PREFIX/etc/bash.bashrc
 
 echo '
@@ -72,6 +72,10 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
 	pkg update -y && pkg upgrade -y
 
     sleep 1
+	echo -e "${GREEN}qt5 설치.${WHITE}"
+	pkg install -y qt5*
+
+    sleep 1
 	echo -e "${GREEN}qt6 설치.${WHITE}"
 	pkg install -y qt6*
 
@@ -96,13 +100,17 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
     pkg install fcitx5* -y
     pkg install libhangul libhangul-static -y
 
-    #sleep 1
-    #echo -e "${GREEN}xfce4 나머지 설치${WHITE}"
-	#pkg install -y xfce4*
+    sleep 1
+    echo -e "${GREEN}xfce4 나머지 설치${WHITE}"
+	pkg install -y xfce4*
+
+    sleep 1
+    apt autoclean -y
+    apt autoremove -y
 
     sleep 1
     echo -e "${GREEN}mesa-demos 설치${WHITE}"
-	pkg install -y mesa-demos
+	pkg install -y mesa-zink
 
     sleep 1
     echo -e "${GREEN}mesa-vulkan-icd-freedreno-dri3 설치${WHITE}"
@@ -172,9 +180,10 @@ sleep 1
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity 
 sleep 1
 
-#MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform
+#env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=kgsl TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session &
+#env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session &
 
-env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=kgsl TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session &' > ~/.shortcuts/startXFCE
+env DISPLAY=:1.0 dbus-launch --exit-with-session xfce4-session &' > ~/.shortcuts/startXFCE
 
     chmod +x ~/.shortcuts/startXFCE
 
