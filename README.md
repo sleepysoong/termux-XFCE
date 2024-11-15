@@ -3,13 +3,17 @@
 https://github.com/phoenixbyrd/Termux_XFCE/tree/main의 debian proot에서 ubuntu proot로 변경하였습니다.
 이외 fcitx5-hangul 등의 설치를 추가하였습니다.
 
-mesa-vulkan-icd-wrapper라는 gpu가속 관련 파일을 직접추가했습니다.
-출처: https://github.com/xMeM/termux-packages/actions/runs/11801252552/artifacts/2177301700
+저는 갤럭시 폴드6(스냅드래곤8 gen3) 갤럭시탭 s9 울트라(스냅드래곤8 gen2)를 사용하고 있습니다.
+스냅드래곤8 gen3는 가속에 문제가 있어서 이 스크립트에 모두 포함하지 않았습니다.
+mesa-zink를 설치하면 가속이 되지 않습니다. 이 스크립트에는 mesa-zink가 설치됩니다.
 
-artifacts로 올려진 파일은 wget으로 다운받을 수 없어 불가피하게 파일을 직접추가 했습니다.
-문제가 된다면 삭제하겠습니다.
+termux-native 가속 드라이버는 아래 url에서 다운받을 수 있습니다.
+https://github.com/xMeM/termux-packages
+위 url로 접속하여 actions -> runs에서 mesa-vulkan-icd-wrapper와 mesa관련 드라이버를 설치하면 됩니다.
 
-칼리리눅스는 삭제하였습니다.
+추후
+스냅드래곤8 gen3이 안정화 되면 스크립트를 업데이트 하겠습니다.
+
 
 # Install
 
@@ -54,13 +58,10 @@ Termux XFCE:
 
 zink - Launch apps in ubuntu proot with hardware acceleration
 
-kgsl - Launch apps in ubuntu proot with hardware acceleration
 
 ubuntu proot:
 
-zink - Launch apps with hardware accleration
-
-kgsl - Launch apps in ubuntu proot with hardware acceleration
+zink - Launch apps in ubuntu proot with hardware acceleration
    
 To enter proot use the command ```ubuntu```, from there you can install aditional software with apt and use cp2menu in termux to copy the menu items over to termux xfce menu. 
 
