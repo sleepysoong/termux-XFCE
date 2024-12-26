@@ -47,11 +47,7 @@ export LC_ALL=
 export XDG_CONFIG_HOME=/data/data/com.termux/files/home/.config
 export XMODIFIERS=@im=fcitx5
 export GTK_IM_MODULE=fcitx5
-export QT_IM_MODULE=fcitx5
-
-LD_PRELOAD=/system/lib64/libskcodec.so
-pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
-pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1' >> $PREFIX/etc/bash.bashrc
+export QT_IM_MODULE=fcitx5' >> $PREFIX/etc/bash.bashrc
 
     source $PREFIX/etc/bash.bashrc
 
@@ -99,10 +95,6 @@ pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymou
     echo -e "${GREEN}한글 설치 ${WHITE}"
     pkg install fcitx5* -y
     pkg install libhangul libhangul-static -y
-
-    sleep 1
-    echo -e "${GREEN}xfce4 나머지 설치${WHITE}"
-	pkg install -y xfce4*
 
     sleep 1
     apt autoclean -y
@@ -214,6 +206,10 @@ termux_etc_install(){
     pkg install -y which
 
     sleep 1
+    echo -e "${GREEN}thunderbird 설치${WHITE}"
+    pkg install -y thunderbird
+
+    sleep 1
 	echo -e "${GREEN}glmark2, neofetch vkmark 설치.${WHITE}"
 	pkg install neofetch glmark2 vkmark -y
 
@@ -244,5 +240,5 @@ termux_hangover_wine_install()
 }
 
 termux_base_setup
-termux_etc_install
+#termux_etc_install
 #termux_hangover_wine_install

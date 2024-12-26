@@ -36,7 +36,7 @@ install_base_packages(){
 	apt install aptitude dialog apt-utils psmisc htop wget glmark2 -y #software-properties-common mesa-utils dbus-x11 libc6
 	sleep 1
 	echo -e "${GREEN}python3 설치.${WHITE}"
-	aptitude install python3  -y  
+	aptitude install python3 -y  
 	
 	sleep 1
 	echo -e "${GREEN}python3-pip 설치.${WHITE}"
@@ -77,11 +77,6 @@ install_base_packages(){
 	sleep 1
 	echo -e "${GREEN}x11-apps 설치.${WHITE}"
 	aptitude install x11-apps -y  
-
-	sleep 1
-	echo -e "${GREEN}neofetch 설치.${WHITE}"
-	aptitude install neofetch -y  
-
 
 	sleep 1
 	echo -e "${GREEN}language-pack-ko 설치.${WHITE}"
@@ -162,7 +157,6 @@ export MESA_NO_ERROR=1 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform MESA_
 	sleep 1
 	echo -e 'LANG=ko_KR.UTF-8
 	LANGUAGE=ko_KR.UTF-8' > /etc/default/locale
-
 }
 
 
