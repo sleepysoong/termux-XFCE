@@ -27,7 +27,7 @@ mv TheSolarSystem.jpg $PREFIX/share/backgrounds/xfce/
 
 #Install WhiteSur-Dark Theme
 wget https://github.com/vinceliuice/WhiteSur-gtk-theme/archive/refs/tags/2024-11-18.zip
-unzip 2024.09.02.zip
+unzip 2024-11-18.zip
 tar -xf WhiteSur-gtk-theme-2024-11-18/release/WhiteSur-Dark.tar.xz
 mv WhiteSur-Dark/ $PREFIX/share/themes/
 rm -rf WhiteSur*

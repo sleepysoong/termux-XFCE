@@ -68,16 +68,8 @@ export QT_IM_MODULE=fcitx5' >> $PREFIX/etc/bash.bashrc
 	pkg update -y && pkg upgrade -y
 
     sleep 1
-	echo -e "${GREEN}qt5 설치.${WHITE}"
-	pkg install -y qt5*
-
-    sleep 1
 	echo -e "${GREEN}qt6 설치.${WHITE}"
 	pkg install -y qt6*
-
-    sleep 1
-	echo -e "${GREEN}pavucontrol-qt 설치.${WHITE}"
-	pkg install -y pavucontrol-qt
 
     sleep 1
     echo -e "${GREEN}xorg-server-xvfb 설치${WHITE}"
@@ -101,7 +93,7 @@ export QT_IM_MODULE=fcitx5' >> $PREFIX/etc/bash.bashrc
     apt autoremove -y
 
     sleep 1
-    echo -e "${GREEN}mesa-demos 설치${WHITE}"
+    echo -e "${GREEN}mesa-zink 설치${WHITE}"
 	pkg install -y mesa-zink
 
     sleep 1
@@ -172,10 +164,12 @@ sleep 1
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity 
 sleep 1
 
-#env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=kgsl TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session &
-#env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session &
+LD_PRELOAD=/system/lib64/libskcodec.so pulseaudio --start --load="module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1" --exit-idle-time=-1
+LD_PRELOAD=/system/lib64/libskcodec.so pacmd load-module module-native-protocol-tcp auth-ip-acl=127.0.0.1 auth-anonymous=1
 
-env DISPLAY=:1.0 dbus-launch --exit-with-session xfce4-session &' > ~/.shortcuts/startXFCE
+env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=kgsl TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session &
+#env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=zink TU_DEBUG=noconform dbus-launch --exit-with-session xfce4-session &
+#env DISPLAY=:1.0 dbus-launch --exit-with-session xfce4-session &' > ~/.shortcuts/startXFCE
 
     chmod +x ~/.shortcuts/startXFCE
 
