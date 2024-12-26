@@ -184,36 +184,6 @@ env DISPLAY=:1.0 dbus-launch --exit-with-session xfce4-session &' > ~/.shortcuts
     chmod +x $PREFIX/bin/startXFCE
 }
 
-termux_etc_install(){
-    sleep 1
-    echo -e "${GREEN}firefox 설치 ${WHITE}"
-    pkg install -y firefox 
-
-    sleep 1
-    echo -e "${GREEN}chromium 설치 ${WHITE}"
-    pkg install -y chromium 
-
-    sleep 1
-    echo -e "${GREEN}gimp 설치 ${WHITE}"
-    pkg install -y gimp 
-
-    sleep 1
-    echo -e "${GREEN}vlc-qt 설치 ${WHITE}"
-    pkg install -y vlc-qt
-
-    sleep 1
-    echo -e "${GREEN}which 설치${WHITE}"
-    pkg install -y which
-
-    sleep 1
-    echo -e "${GREEN}thunderbird 설치${WHITE}"
-    pkg install -y thunderbird
-
-    sleep 1
-	echo -e "${GREEN}glmark2, neofetch vkmark 설치.${WHITE}"
-	pkg install neofetch glmark2 vkmark -y
-
-}
 
 termux_hangover_wine_install()
 {
@@ -227,18 +197,16 @@ termux_hangover_wine_install()
     sleep 1
 
     echo -e "${GREEN}의존프로그램 설치${WHITE}"
-	#pkg install -y cabextract clang 7zip freetype gnutls libandroid-shmem-static libx11 xorgproto mesa-demos libdrm libpixman libxfixes libjpeg-turbo xtrans libxxf86vm xorg-xrandr xorg-font-util xorg-util-macros libxfont2 libxkbfile libpciaccess xcb-util-renderutil xcb-util-image xcb-util-keysyms xcb-util-wm xorg-xkbcomp xkeyboard-config libxdamage libxinerama libxshmfence
+	pkg install -y cabextract clang 7zip freetype gnutls libandroid-shmem-static libx11 xorgproto mesa-demos libdrm libpixman libxfixes libjpeg-turbo xtrans libxxf86vm xorg-xrandr xorg-font-util xorg-util-macros libxfont2 libxkbfile libpciaccess xcb-util-renderutil xcb-util-image xcb-util-keysyms xcb-util-wm xorg-xkbcomp xkeyboard-config libxdamage libxinerama libxshmfence
 
-    #sleep 1
-    #echo -e "${GREEN}hangover-wine 설치${WHITE}"
-    #pkg install -y hangover-wine
-
-    #sleep 1
-    #echo -e "${GREEN}winetricks 설치${WHITE}"
-    #pkg install -y winetricks
+    sleep 1
+    echo -e "${GREEN}hangover-wine 설치${WHITE}"
+    pkg install -y hangover-wine
+    sleep 1
+    echo -e "${GREEN}winetricks 설치${WHITE}"
+    pkg install -y winetricks
 
 }
 
 termux_base_setup
-#termux_etc_install
 #termux_hangover_wine_install
