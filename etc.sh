@@ -189,5 +189,28 @@ termux_hangover_wine_install()
 }
 
 termux_base_setup
+
+echo -e "${UYELLOW}gpu 가속(mesa-zink, mesa-vulkan-icd-freedreno-dri3)을 설치하겠습니까?(y/n)${WHITE}"  
+read yn
+	case $yn in 
+		y ) echo -e "${GREEN}gpu 가속을 설치합니다.${WHITE}"
+            termux_gpu_accel_install
+            ;;
+		* ) echo -e "${GREEN}설치를 하지 않습니다.${WHITE}"
+            ;;
+	esac
+
+echo -e "${UYELLOW}gpu 가속 dev 관련(clvk 등)을 설치하겠습니까?(y/n)${WHITE}"  
+read yn
+	case $yn in 
+		y ) echo -e "${GREEN}gpu 가속을 설치합니다.${WHITE}"
+            termux_gpu_accel_dev_install
+            ;;
+		* ) echo -e "${GREEN}설치를 하지 않습니다.${WHITE}"
+            ;;
+	esac
+
+
 termux_gpu_accel_install
+termux_gpu_accel_dev_install
 #termux_hangover_wine_install
