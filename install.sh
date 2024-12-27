@@ -63,7 +63,7 @@ chmod +x *.sh
 ./etc.sh
 ./proot.sh "$username"
 ./utils.sh
-./temp_background
+./temp_background.sh
 
 # Display a message 
 clear -x
