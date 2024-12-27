@@ -2,6 +2,8 @@
 
 https://github.com/phoenixbyrd/Termux_XFCE/tree/main의 debian proot에서 ubuntu proot로 변경하였습니다.
 이외 fcitx5-hangul 등의 설치를 추가하였습니다.
+현재 xfce4 배경화면 변경에 오류가 있어 phoenixbyrd님이 올려주신 임시 스크립트를 사용해야합니다.
+temp_background.sh를 실행한 후 배경화면 번호를 입력하면 됩니다.
 
 저는 갤럭시 폴드6(스냅드래곤8 gen3) 갤럭시탭 s9 울트라(스냅드래곤8 gen2)를 사용하고 있습니다.
 스냅드래곤8 gen3는 가속에 문제가 있어서 이 스크립트에 모두 포함하지 않았습니다.
@@ -40,7 +42,7 @@ Join the Discord for any questions, help, suggestions, etc. [https://discord.gg/
 
 During install you will recieve a popup to allow installs from termux, this will open the APK for the Termux-X11 android app. While you do not have to allow installs from termux, you will still need to install manually by using a file browser and finding the APK in your downloads folder. 
   
-Use the command ```start``` to initiate a Termux-X11 session
+Use the command ```startXFCE``` to initiate a Termux-X11 session
   
 This will start the termux-x11 server, XFCE4 desktop and open the Termux-X11 app right into the desktop. 
 
@@ -65,7 +67,6 @@ zink - Launch apps in ubuntu proot with hardware acceleration
    
 To enter proot use the command ```ubuntu```, from there you can install aditional software with apt and use cp2menu in termux to copy the menu items over to termux xfce menu. 
 
-Nala has been chosen as a front end in ubuntu proot. As it is currently setup, you do not need to issue sudo prior to running apt. This allows for you to just run apt update, apt upgrade, etc without also using sudo. This is setup similar in Termux as well and works just the same.
 
 &nbsp;
 
