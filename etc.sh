@@ -119,11 +119,11 @@ termux_gpu_accel_install()
 {
     set -e
     sleep 1
-    echo -e "${GREEN}mesa-zink 설치 - Vulkan을 사용해 OpenGL 기능을 실행할 수 있도록 하여, Vulkan 호환성을 강화하거나 특정 하드웨어에서 그래픽 성능을 최적화합니다. ${WHITE}"
-	pkg install -y mesa-zink
+    echo -e "${GREEN}mesa ${WHITE}"
+	pkg install -y mesa mesa-demos mesa-dev osmesa osmesa-demos 
 
     sleep 1
-    echo -e "${GREEN}mesa-vulkan-icd-freedreno-dri3 설치 -Adreno GPU가 장착된 장치에서 Vulkan API를 사용하기 위한 환경을 제공합니다. ${WHITE}"
+    echo -e "${GREEN}mesa-vulkan-icd-freedreno-dri3 설치-Adreno GPU가 장착된 장치에서 Vulkan API를 사용하기 위한 환경을 제공합니다. ${WHITE}"
     pkg install -y mesa-vulkan-icd-freedreno-dri3
 
 }
