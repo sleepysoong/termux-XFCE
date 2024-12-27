@@ -81,6 +81,17 @@ export QT_IM_MODULE=fcitx5' >> $PREFIX/etc/bash.bashrc
 
 
     sleep 1
+    echo -e "${GREEN}한글 설치 ${WHITE}"
+    pkg install fcitx5* -y
+    pkg install libhangul libhangul-static -y
+
+
+    sleep 1
+    apt autoclean -y
+    apt autoremove -y
+
+
+    sleep 1
     echo -e "${GREEN}Termux-widget 설치.${WHITE}"
     wget $TERMUX_WIDGET_LINK -O termux-widget_v0.13.0+github-debug.apk
 	termux-open termux-widget_v0.13.0+github-debug.apk
