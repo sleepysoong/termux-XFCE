@@ -7,7 +7,8 @@ temp_background.sh를 실행한 후 배경화면 번호를 입력하면 됩니�
 
 저는 갤럭시 폴드6(스냅드래곤8 gen3) 갤럭시탭 s9 울트라(스냅드래곤8 gen2)를 사용하고 있습니다.
 스냅드래곤8 gen3는 가속에 문제가 있어서 이 스크립트에 모두 포함하지 않았습니다.
-mesa-zink를 설치하면 가속이 되지 않습니다. 이 스크립트에는 mesa-zink가 설치됩니다.
+mesa-zink를 설치하면 가속이 되지 않습니다. 
+이 스크립트에는 mesa가 설치됩니다. / zenity가 실행되지 않으면 mesa-zink 설치 후 zenity 사용하고 다시 mesa를 설치하세요 ㅠ
 
 termux-native 가속 드라이버는 아래 url에서 다운받을 수 있습니다.
 https://github.com/xMeM/termux-packages
