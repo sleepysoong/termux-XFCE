@@ -54,7 +54,19 @@ export QT_IM_MODULE=fcitx5' >> $PREFIX/etc/bash.bashrc
     sleep 1
 	echo -e "${GREEN}unzip설치.${WHITE}"
 	pkg install -y unzip
-  
+
+    sleep 1
+    echo -e "${GREEN}which 설치${WHITE}"
+    pkg install -y which
+
+    sleep 1
+	echo -e "${GREEN}qt5 설치.${WHITE}"
+	pkg install -y qt5*
+
+    sleep 1
+	echo -e "${GREEN}qt6 설치.${WHITE}"
+	pkg install -y qt6*
+
     echo -e "${GREEN}tur-repo추가${WHITE}"
     pkg install -y tur-repo
     if ! grep -q "tur-multilib tur-hacking" ~/../usr/etc/apt/sources.list.d/tur.list; then
@@ -67,82 +79,6 @@ export QT_IM_MODULE=fcitx5' >> $PREFIX/etc/bash.bashrc
 	pkg install root-repo -y
 	pkg update -y && pkg upgrade -y
 
-    sleep 1
-	echo -e "${GREEN}qt6 설치.${WHITE}"
-	pkg install -y qt6*
-
-    sleep 1
-    echo -e "${GREEN}xorg-server-xvfb 설치${WHITE}"
-    pkg install -y xorg-server-xvfb
-
-    sleep 1
-    echo -e "${GREEN}turmux-x11-nightly 설치 ${WHITE}"
-    pkg install -y termux-x11-nightly
-    
-    sleep 1
-    echo -e "${GREEN}webp-pixbuf-loader 설치 ${WHITE}"
-    pkg install -y webp-pixbuf-loader
-
-    sleep 1
-    echo -e "${GREEN}한글 설치 ${WHITE}"
-    pkg install fcitx5* -y
-    pkg install libhangul libhangul-static -y
-
-    sleep 1
-    apt autoclean -y
-    apt autoremove -y
-
-    sleep 1
-    echo -e "${GREEN}mesa-zink 설치${WHITE}"
-	pkg install -y mesa-zink
-
-    sleep 1
-    echo -e "${GREEN}mesa-vulkan-icd-freedreno-dri3 설치${WHITE}"
-    pkg install -y mesa-vulkan-icd-freedreno-dri3
-
-    sleep 1
-    echo -e "${GREEN}clvk 설치${WHITE}"
-	pkg install -y clvk
-
-    sleep 1
-    echo -e "${GREEN}clinfo 설치${WHITE}"
-	pkg install -y clinfo
-
-    sleep 1
-    echo -e "${GREEN}gtkmm4 설치${WHITE}"
-	pkg install -y gtkmm4
-
-    sleep 1
-    echo -e "${GREEN}libsigc++-3.0 설치${WHITE}"
-	pkg install -y libsigc++-3.0
-
-    sleep 1
-    echo -e "${GREEN} libcairomm-1.16 설치${WHITE}"
-	pkg install -y libcairomm-1.16
-
-    sleep 1
-    echo -e "${GREEN} libglibmm-2.68 설치${WHITE}"
-	pkg install -y libglibmm-2.68
-
-    sleep 1
-    echo -e "${GREEN} libpangomm-2.48 설치${WHITE}"
-	pkg install -y libpangomm-2.48
-
-    sleep 1
-    echo -e "${GREEN} swig 설치${WHITE}"
-	pkg install -y swig
-
-    sleep 1
-    echo -e "${GREEN} libpeas 설치${WHITE}"
-	pkg install -y libpeas
-
-    #sleep 1
-    #echo -e "${GREEN}mesa-vulkan-icd-wrapper 설치${WHITE}"
-    #echo -e "출처: https://github.com/xMeM/termux-packages/actions/runs/11801252552/artifacts/2177301700"
-
-    #wget https://github.com/yanghoeg/Termux_XFCE/raw/main/mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
-    #apt install -y ./mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
-    #rm -f ./mesa-vulkan-icd-wrapper-dbg_24.2.5-8_aarch64.deb
 
     sleep 1
     echo -e "${GREEN}Termux-widget 설치.${WHITE}"
@@ -179,6 +115,56 @@ env DISPLAY=:1.0 MESA_LOADER_DRIVER_OVERRIDE=kgsl TU_DEBUG=noconform dbus-launch
 }
 
 
+termux_gpu_accel_install()
+{
+    set -e
+    sleep 1
+    echo -e "${GREEN}mesa-zink 설치 - Vulkan을 사용해 OpenGL 기능을 실행할 수 있도록 하여, Vulkan 호환성을 강화하거나 특정 하드웨어에서 그래픽 성능을 최적화합니다. ${WHITE}"
+	pkg install -y mesa-zink
+
+    sleep 1
+    echo -e "${GREEN}mesa-vulkan-icd-freedreno-dri3 설치 -Adreno GPU가 장착된 장치에서 Vulkan API를 사용하기 위한 환경을 제공합니다. ${WHITE}"
+    pkg install -y mesa-vulkan-icd-freedreno-dri3
+
+}
+termux_gpu_accel_dev_install(){
+    sleep 1
+    echo -e "${GREEN}clvk 설치 - OpenCL을 Vulkan으로 매핑하는 계층(library)입니다.${WHITE}"
+	pkg install -y clvk
+
+    sleep 1
+    echo -e "${GREEN}clinfo 설치 - 설치된 OpenCL 플랫폼과 디바이스의 정보를 확인하여 디버깅 및 설정 확인에 사용됩니다. ${WHITE}"
+	pkg install -y clinfo
+
+    sleep 1
+    echo -e "${GREEN}gtkmm4 설치- GUI 애플리케이션을 C++로 개발할 때 GTK+ 4의 기능을 객체 지향적으로 사용할 수 있도록 지원합니다.${WHITE}"
+	pkg install -y gtkmm4
+
+    sleep 1
+    echo -e "${GREEN}libsigc++-3.0 설치 - GTKmm 등에서 콜백 함수 구현 시 사용됩니다.${WHITE}"
+	pkg install -y libsigc++-3.0
+
+    sleep 1
+    echo -e "${GREEN} libcairomm-1.16 설치 - 2D 그래픽 렌더링을 더 쉽게 구현할 수 있도록 지원합니다.${WHITE}"
+	pkg install -y libcairomm-1.16
+
+    sleep 1
+    echo -e "${GREEN} libglibmm-2.68 설치 - GLib의 데이터 구조와 이벤트 루프 기능을 C++에서 사용할 수 있게 합니다.${WHITE}"
+	pkg install -y libglibmm-2.68
+
+    sleep 1
+    echo -e "${GREEN} libpangomm-2.48 설치 - 텍스트 렌더링 및 레이아웃 관련 작업을 C++에서 지원합니다. ${WHITE}"
+	pkg install -y libpangomm-2.48
+
+    sleep 1
+    echo -e "${GREEN} swig 설치 - C/C++ 라이브러리를 Python, Java, Ruby 같은 언어에서 사용할 수 있도록 인터페이스를 생성합니다. ${WHITE}"
+	pkg install -y swig
+
+    sleep 1
+    echo -e "${GREEN} libpeas 설치 - GTK 기반 애플리케이션에서 플러그인 기능을 쉽게 추가 및 관리할 수 있도록 지원합니다.${WHITE}"
+	pkg install -y libpeas
+}
+
 termux_hangover_wine_install()
 {
     set -e
@@ -203,4 +189,5 @@ termux_hangover_wine_install()
 }
 
 termux_base_setup
+termux_gpu_accel_install
 #termux_hangover_wine_install
