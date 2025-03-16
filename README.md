@@ -17,6 +17,9 @@ https://github.com/xMeM/termux-packages
 추후
 스냅드래곤8 gen3이 안정화 되면 스크립트를 업데이트 하겠습니다.
 
+추가
+이 스크립트를 사용해주셔서 감사합니다. 혹시 스크립트에 오류가 있거나 더 좋은 아이디어가 있으면 풀리퀘스트도 해주세요. 
+
 
 # Install
 
@@ -71,9 +74,9 @@ To enter proot use the command ```ubuntu```, from there you can install aditiona
 
 &nbsp;
 
-There are two scripts available for this setup as well
+설치시 2개의 명령어를 사용할 수 있습니다.
   
-```prun```  Running this followed by a command you want to run from the ubuntu proot install will allow you to run stuff from the termux terminal without running ```ubuntu``` to get into the proot itself.
+```prun```  prun [명령어] 형태로 termux 터미널에서 우분투 프로그램을 실행할 수 있습니다.
   
 ```cp2menu``` Running this will pop up a window allowing you to copy .desktop files from ubuntu proot into the termux xfce "start" menu so you won't need to launch them from terminal. A launcher is available in the System menu section.
 
