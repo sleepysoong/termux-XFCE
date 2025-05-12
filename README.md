@@ -1,3 +1,8 @@
+# 스크립트 일부 수정
+
+양획님께서 개발로 바쁘신 이유로 일부 스크립트를 대신 수정해 보았습니다.
+스크립트 수정은 https://blog.naver.com/myblog7777/223584303774 게시글에 있는 지루한세상 님의 댓글을 참고하였습니다.
+
 # Termux_XFCE
 
 https://github.com/phoenixbyrd/Termux_XFCE/tree/main의 debian proot에서 ubuntu proot로 변경하였습니다.
@@ -25,7 +30,7 @@ https://github.com/xMeM/termux-packages
 전체 프로그램 설치: 아래 명령어를 입력하세요
 
 ```
-curl -sL https://raw.githubusercontent.com/yanghoeg/Termux_XFCE/main/install.sh -o install.sh && chmod +x install.sh && ./install.sh
+curl -sL https://raw.githubusercontent.com/KIMSEONGHA2223/Termux_edit/main/install.sh -o install.sh && chmod +x install.sh && ./install.sh
 ```
 &nbsp;
 
