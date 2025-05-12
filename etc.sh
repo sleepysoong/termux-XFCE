@@ -130,7 +130,7 @@ termux_gpu_accel_install()
     set -e
     sleep 1
     echo -e "${GREEN}mesa 및 관련 패키지 설치 ${WHITE}"
-    pkg install -y mesa=25.0.5  mesa-demos mesa-dev osmesa=25.0.5 osmesa-demos=9.0.0-4
+    pkg install -y mesa  mesa-demos mesa-dev osmesa osmesa-demos
     sleep 1
     echo -e "${GREEN}mesa-vulkan-icd-freedreno-dri3 설치 - Adreno GPU가 장착된 장치에서 Vulkan API를 사용하기 위한 환경을 제공합니다. ${WHITE}"
     pkg install -y mesa-vulkan-icd-freedreno-dri3
