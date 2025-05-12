@@ -220,6 +220,6 @@ read yn
 	esac
 
 
-termux_gpu_accel_install
-termux_gpu_accel_dev_install
+#termux_gpu_accel_install
+#termux_gpu_accel_dev_install
 #termux_hangover_wine_install
