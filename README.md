@@ -5,8 +5,12 @@
 # 수정 사항
 
 1. proot.sh 의 90번째 줄에 --allow-downgrades 추가하여 버전 불일치 해결
-2. etc.sh 의 termux_gpu_accel_install() 함수에서 mesa mesa-demos mesa-dev 만 설치되도록 변경하여 osmesa 와 osmesa-demos 가 일으키는 의존성 충돌 문제 해결
-3. etc.sh 에서 n을 눌러도 termux_gpu_accel_install() 함수와 termux_gpu_accel_dev_install() 함수가 실행되지 않도록 스크립트 끝부분 주석 처리
+   
+2. etc.sh 의 termux_gpu_accel_install() 함수에서 mesa mesa-demos mesa-dev 만 설치되도록 변경하여
+   osmesa 와 osmesa-demos 가 일으키는 의존성 충돌 문제 해결
+   
+3. etc.sh 에서 n을 눌러도 termux_gpu_accel_install() 함수와
+   termux_gpu_accel_dev_install() 함수가 실행되지 않도록 스크립트 끝부분 주석 처리
 
 # Termux_XFCE
 
