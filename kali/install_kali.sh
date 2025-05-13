@@ -12,8 +12,8 @@ read yn
 		y ) echo -e "${GREEN}Kali-linux를 설치합니다....${WHITE}"
             read -r -p "termux에서 사용하는 이름(id)을 입력하세요.: " username </dev/tty
             read -r -p "칼리리눅스 사용자 이름(id)을 입력하세요.: " kaliname </dev/tty
-			wget https://github.com/yanghoeg/Termux_XFCE/raw/main/kali_install.sh
-			wget https://github.com/yanghoeg/Termux_XFCE/raw/main/kali_install_app.sh
+			wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/kali_install.sh
+			wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/kali_install_app.sh
             chmod +x *.sh
             ./kali_install.sh $username $kaliname
             ./kali_install_app.sh $kaliname
