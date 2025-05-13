@@ -85,9 +85,9 @@ EOF
 mkdir $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.fonts/
 cp .fonts/NotoColorEmoji-Regular.ttf $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.fonts/ 
 
-#Setup Hardware Acceleration
-#pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
-#pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb --allow downgrades
+# Setup Hardware Acceleration
+pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
+pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb --allow downgrades
 
 wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/ubuntu_etc.sh
 chmod +x ./ubuntu_etc.sh
