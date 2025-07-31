@@ -65,7 +65,8 @@ mv font.ttf .termux/font.ttf
 #Setup Fancybash Termux
 wget https://raw.githubusercontent.com/KIMSEONGHA2223/Termux_edit/main/fancybash.sh
 mv fancybash.sh .fancybash.sh
-echo "source $HOME/.fancybash.sh" >> $PREFIX/etc/bash.bashrc
+# unbound variable 오류 방지를 위해 set +u 추가
+echo "set +u; source $HOME/.fancybash.sh; set -u" >> $PREFIX/etc/bash.bashrc
 sed -i "326s/\\\u/$username/" $HOME/.fancybash.sh
 sed -i "327s/\\\h/termux/" $HOME/.fancybash.sh
 

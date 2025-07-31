@@ -65,7 +65,8 @@ pd login ubuntu --shared-tmp -- env DISPLAY=:1.0 cp /usr/share/zoneinfo/$timezon
 
 #Setup Fancybash Proot
 cp .fancybash.sh $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username
-echo "source ~/.fancybash.sh" >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
+# unbound variable 오류 방지를 위해 set +u 추가
+echo "set +u; source ~/.fancybash.sh; set -u" >> $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.bashrc
 sed -i '327s/termux/ubuntu/' $PREFIX/var/lib/proot-distro/installed-rootfs/ubuntu/home/$username/.fancybash.sh
 
 wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/conky.tar.gz

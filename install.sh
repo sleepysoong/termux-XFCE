@@ -76,7 +76,10 @@ wget https://github.com/termux/termux-x11/releases/download/nightly/app-arm64-v8
 mv app-arm64-v8a-debug.apk $HOME/storage/downloads/
 termux-open $HOME/storage/downloads/app-arm64-v8a-debug.apk
 
+# bash.bashrc 소싱 시 unbound variable 오류 방지
+set +u
 source $PREFIX/etc/bash.bashrc
+set -u
 termux-reload-settings
 
 #echo -e "${GREEN}Kali-linux를 설치합니다. 생성되는 ID는 기존에 지정한 ID와 동일합니다.${WHITE}"  
