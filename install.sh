@@ -52,11 +52,11 @@ mkdir -p Desktop
 mkdir -p Downloads
 
 #Download required install scripts
-wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/xfce.sh
-wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/proot.sh
-wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/utils.sh
-wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/etc.sh
-wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/temp_background.sh
+wget https://github.com/sleepysoong/termux-XFCE/raw/main/xfce.sh
+wget https://github.com/sleepysoong/termux-XFCE/raw/main/proot.sh
+wget https://github.com/sleepysoong/termux-XFCE/raw/main/utils.sh
+wget https://github.com/sleepysoong/termux-XFCE/raw/main/etc.sh
+wget https://github.com/sleepysoong/termux-XFCE/raw/main/temp_background.sh
 chmod +x *.sh
 
 ./xfce.sh "$username"
@@ -90,8 +90,8 @@ termux-reload-settings
 #	case $yn in 
 #		y ) echo -e "${GREEN}Kali-linux를 설치합니다....${WHITE}"
 #          read -r -p "칼리리눅스 사용자 이름(id)을 입력하세요.: " kaliname </dev/tty
-#			    wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/kali_install.sh
-#			    wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/kali_install_app.sh
+#			    wget https://github.com/sleepysoong/termux-XFCE/raw/main/kali_install.sh
+#			    wget https://github.com/sleepysoong/termux-XFCE/raw/main/kali_install_app.sh
 #            chmod +x *.sh
 #            ./kali_install.sh $username $kaliname
 #            ./kali_install_app.sh $kaliname

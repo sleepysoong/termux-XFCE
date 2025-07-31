@@ -116,7 +116,7 @@ echo "source ~/.fancybash.sh" >> $PREFIX/var/lib/proot-distro/installed-rootfs/B
 sed -i "326s/$tusername/$username/" $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.fancybash.sh
 sed -i '327s/termux/kali/' $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.fancybash.sh
 
-wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/conky.tar.gz
+wget https://github.com/sleepysoong/termux-XFCE/raw/main/conky.tar.gz
 tar -xvzf conky.tar.gz
 rm -f conky.tar.gz
 
@@ -142,10 +142,10 @@ fi
 cp .fonts/NotoColorEmoji-Regular.ttf $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/home/$username/.fonts/ 
 
 #Setup Hardware Acceleration
-pd login BackTrack --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
+pd login BackTrack --shared-tmp -- env DISPLAY=:1.0 wget https://github.com/sleepysoong/termux-XFCE/raw/main/mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
 pd login BackTrack --shared-tmp -- env DISPLAY=:1.0 sudo apt install -y ./mesa-vulkan-kgsl_24.1.0-devel-20240120_arm64.deb
 
-wget https://github.com/KIMSEONGHA2223/Termux_edit/raw/main/kali_install_etc_app.sh
+wget https://github.com/sleepysoong/termux-XFCE/raw/main/kali_install_etc_app.sh
 chmod +x ./kali_install_etc_app.sh
 cp ./kali_install_etc_app.sh $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/root/kali_install_etc_app.sh
 chmod +x $PREFIX/var/lib/proot-distro/installed-rootfs/BackTrack/root/kali_install_etc_app.sh
