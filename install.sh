@@ -5,8 +5,8 @@ export URED='\033[4;31m'
 export UYELLOW='\033[4;33m'
 export WHITE='\033[0;37m'
 
-# Unofficial Bash Strict Mode
-set -euo pipefail
+# 부분적 실패를 허용하는 설정으로 변경
+set -uo pipefail
 IFS=$'\n\t'
 
 finish() {
@@ -59,11 +59,11 @@ wget https://github.com/sleepysoong/termux-XFCE/raw/main/etc.sh
 wget https://github.com/sleepysoong/termux-XFCE/raw/main/temp_background.sh
 chmod +x *.sh
 
-./xfce.sh "$username"
-./etc.sh
-./proot.sh "$username"
-./utils.sh
-./temp_background.sh
+./xfce.sh "$username" || echo "XFCE 설치 중 일부 오류가 발생했지만 계속 진행합니다..."
+./etc.sh || echo "etc.sh 실행 중 오류 발생, 계속 진행합니다..."
+./proot.sh "$username" || echo "proot.sh 실행 중 오류 발생, 계속 진행합니다..."
+./utils.sh || echo "utils.sh 실행 중 오류 발생, 계속 진행합니다..."
+./temp_background.sh || echo "temp_background.sh 실행 중 오류 발생, 계속 진행합니다..."
 
 # Display a message 
 clear -x
